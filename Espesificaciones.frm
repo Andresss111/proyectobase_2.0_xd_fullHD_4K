@@ -161,7 +161,7 @@ Private Sub Command1_Click()
         !Cantidad = Text1.Text
         !Precio = Label2.Caption
         !Total = Label6.Caption
-        .Update
+        .UpdateBatch
     End With
     Form4.Hide
 End Sub

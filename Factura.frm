@@ -510,18 +510,10 @@ Private Sub Command2_Click()
         x = .RecordCount
     End With
     For i = 1 To x
-        If i = 0 Then
-        With Temp
-            .AddNew
-            !Descripción = "hey hey"
-            .Update
-        End With
-        Else
         With Temp
             .Delete
             .MoveNext
         End With
-        End If
     Next i
 End Sub
 
