@@ -1,12 +1,12 @@
 VERSION 5.00
 Begin VB.Form Form6 
    Caption         =   "Form6"
-   ClientHeight    =   4095
+   ClientHeight    =   3705
    ClientLeft      =   120
    ClientTop       =   465
    ClientWidth     =   8655
    LinkTopic       =   "Form6"
-   ScaleHeight     =   4095
+   ScaleHeight     =   3705
    ScaleWidth      =   8655
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command3 
@@ -35,7 +35,7 @@ Begin VB.Form Form6
    End
    Begin VB.TextBox Text3 
       Height          =   375
-      Left            =   3120
+      Left            =   1800
       TabIndex        =   7
       Top             =   1560
       Width           =   2415

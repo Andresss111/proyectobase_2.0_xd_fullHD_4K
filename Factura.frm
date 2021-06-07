@@ -513,6 +513,7 @@ Private Sub Command2_Click()
         With Temp
             .Delete
             .MoveNext
+            .UpdateBatch
         End With
     Next i
 End Sub
