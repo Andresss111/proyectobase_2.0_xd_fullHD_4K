@@ -1,44 +1,61 @@
 VERSION 5.00
 Begin VB.Form Form3 
    Caption         =   "Form3"
-   ClientHeight    =   4755
+   ClientHeight    =   4335
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   5325
+   ClientWidth     =   3525
    LinkTopic       =   "Form3"
-   ScaleHeight     =   4755
-   ScaleWidth      =   5325
+   ScaleHeight     =   4335
+   ScaleWidth      =   3525
    StartUpPosition =   3  'Windows Default
-   Begin VB.CheckBox Check3 
-      Caption         =   "S"
+   Begin VB.OptionButton Option7 
+      Caption         =   "G"
       Height          =   255
-      Left            =   1320
-      TabIndex        =   7
-      Top             =   2400
-      Width           =   735
+      Left            =   2040
+      TabIndex        =   9
+      Top             =   3120
+      Width           =   615
    End
-   Begin VB.CheckBox Check2 
+   Begin VB.OptionButton Option6 
       Caption         =   "M"
       Height          =   255
-      Left            =   2280
-      TabIndex        =   6
-      Top             =   2400
-      Width           =   735
+      Left            =   1080
+      TabIndex        =   8
+      Top             =   3120
+      Width           =   615
    End
-   Begin VB.CheckBox Check1 
-      Caption         =   "XS"
+   Begin VB.OptionButton Option5 
+      Caption         =   "S"
       Height          =   255
-      Left            =   360
-      TabIndex        =   5
-      Top             =   2400
-      Width           =   735
+      Left            =   240
+      TabIndex        =   7
+      Top             =   3120
+      Width           =   615
    End
    Begin VB.OptionButton Option2 
-      Height          =   375
+      Caption         =   "Pantalones"
+      Height          =   255
       Left            =   1680
-      TabIndex        =   3
+      TabIndex        =   6
       Top             =   1320
-      Width           =   1095
+      Width           =   1215
+   End
+   Begin VB.OptionButton Option4 
+      Caption         =   "Conjuntos"
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   5
+      Top             =   1920
+      Width           =   1215
+   End
+   Begin VB.OptionButton Option3 
+      Caption         =   "Chaquetas"
+      Height          =   255
+      Left            =   240
+      TabIndex        =   4
+      Top             =   1920
+      Width           =   1215
    End
    Begin VB.OptionButton Option1 
       Caption         =   "Camisetas"
@@ -48,52 +65,12 @@ Begin VB.Form Form3
       Top             =   1320
       Width           =   1215
    End
-   Begin VB.Shape Shape4 
-      BackColor       =   &H000000FF&
-      BackStyle       =   1  'Opaque
-      Height          =   255
-      Left            =   960
-      Top             =   3360
-      Width           =   255
-   End
-   Begin VB.Shape Shape3 
-      BackColor       =   &H00FF0000&
-      BackStyle       =   1  'Opaque
-      Height          =   255
-      Left            =   1560
-      Top             =   3360
-      Width           =   255
-   End
-   Begin VB.Shape Shape2 
-      BackColor       =   &H000080FF&
-      BackStyle       =   1  'Opaque
-      Height          =   255
-      Left            =   2160
-      Top             =   3360
-      Width           =   255
-   End
-   Begin VB.Shape Shape1 
-      BackColor       =   &H00000000&
-      BackStyle       =   1  'Opaque
-      Height          =   255
-      Left            =   360
-      Top             =   3360
-      Width           =   255
-   End
-   Begin VB.Label Label4 
-      Caption         =   "Color"
-      Height          =   255
-      Left            =   120
-      TabIndex        =   8
-      Top             =   2880
-      Width           =   975
-   End
    Begin VB.Label Label3 
       Caption         =   "Talla"
       Height          =   255
       Left            =   120
-      TabIndex        =   4
-      Top             =   1920
+      TabIndex        =   3
+      Top             =   2520
       Width           =   975
    End
    Begin VB.Label Label2 
@@ -108,7 +85,7 @@ Begin VB.Form Form3
       Alignment       =   2  'Center
       Caption         =   "Filtros"
       Height          =   255
-      Left            =   1920
+      Left            =   1440
       TabIndex        =   0
       Top             =   240
       Width           =   855
