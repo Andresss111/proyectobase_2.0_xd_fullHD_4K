@@ -305,6 +305,26 @@ Private Sub Command1_Click()
     Command1.Enabled = False
 End Sub
 
+Private Sub Command2_Click()
+    x = Form1.Label5.Caption
+    CTP
+    With TP
+        !Etiqueta = Trim(Text1.Text)
+        !Descripcion = Trim(Text2.Text)
+        !Precio = Trim(Text3.Text)
+        !Talla_S = Trim(Text4(0).Text)
+        !Talla_M = Trim(Text4(1).Text)
+        !Talla_G = Trim(Text4(2).Text)
+        !Cantidad = Trim(Text7.Text)
+        !URL = Trim(Label9.Caption)
+        !Id_TP_FK = Trim(Label10.Caption)
+        .UpdateBatch
+        .MoveLast
+        ID.Caption = !Id_Producto
+    End With
+    
+End Sub
+
 Private Sub DataCombo1_Change()
     CTTP
     With TTP

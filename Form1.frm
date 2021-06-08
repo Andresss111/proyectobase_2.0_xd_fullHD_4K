@@ -94,6 +94,14 @@ Begin VB.Form Form1
       Top             =   1080
       Width           =   615
    End
+   Begin VB.Label Label8 
+      Caption         =   "Label8"
+      Height          =   495
+      Left            =   11880
+      TabIndex        =   23
+      Top             =   480
+      Width           =   1215
+   End
    Begin VB.Label Label7 
       Height          =   375
       Left            =   14040
@@ -213,7 +221,7 @@ Begin VB.Form Form1
       Caption         =   "Label4"
       Height          =   375
       Index           =   2
-      Left            =   8160
+      Left            =   8280
       TabIndex        =   6
       Top             =   4800
       Width           =   2175
@@ -491,22 +499,41 @@ Private Sub Image1_Click(Index As Integer)
     Label5.Caption = Index
     x = Label5.Caption
     Label5.Caption = Label6(x).Caption
-    Form4.Show
     x = Label5.Caption
     CTP
     With TP
         .Find "Id_Producto='" & x & "'"
-        If Trim(!URL) = "" Then
-            Form4.Image2.Picture = LoadPicture("& App.Path &\img\df.jpg")
+        If Label8.Caption = 1 Then
+            Form6.Show
+            If Trim(!URL) = "" Then
+                Form6.Image1.Picture = LoadPicture("& App.Path &\img\df.jpg")
+            Else
+                y = App.Path
+                Form6.Image1.Picture = LoadPicture(y & "\img\" & Trim(!URL))
+            End If
+            Form6.Text1.Text = Trim(!Etiqueta)
+            Form6.Text2.Text = Trim(!Descripcion)
+            Form6.Text3.Text = Trim(!Precio)
+            Form6.Command1.Enabled = False
+            Form6.Text4(0).Text = Trim(!Talla_S)
+            Form6.Text4(1).Text = Trim(!Talla_M)
+            Form6.Text4(2).Text = Trim(!Talla_G)
+            
+            
         Else
-            y = App.Path
-            Form4.Image2.Picture = LoadPicture(y & "\img\" & Trim(!URL))
+            Form4.Show
+            If Trim(!URL) = "" Then
+                Form4.Image2.Picture = LoadPicture("& App.Path &\img\df.jpg")
+            Else
+                y = App.Path
+                Form4.Image2.Picture = LoadPicture(y & "\img\" & Trim(!URL))
+            End If
+            Form4.Label1.Caption = Trim(!Etiqueta)
+            Form4.Label4.Caption = Trim(!Descripcion)
+            Form4.Label2.Caption = Trim(!Precio)
+            'If !Color = "rojo" Then Form4.Shape1.BackColor = &HFF&
+            Form4.Text1.Enabled = False
         End If
-        Form4.Label1.Caption = Trim(!Etiqueta)
-        Form4.Label4.Caption = Trim(!Descripcion)
-        Form4.Label2.Caption = Trim(!Precio)
-        'If !Color = "rojo" Then Form4.Shape1.BackColor = &HFF&
-        Form4.Text1.Enabled = False
     End With
 End Sub
 

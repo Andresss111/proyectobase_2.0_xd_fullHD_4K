@@ -33,6 +33,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Command1_Click()
     Form1.Show
+    Form1.Label8.Caption = 1
 End Sub
 
 Private Sub Command2_Click()
