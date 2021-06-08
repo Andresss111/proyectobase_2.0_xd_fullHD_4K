@@ -3,26 +3,27 @@ Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Begin VB.Form Form6 
    Caption         =   "Form6"
-   ClientHeight    =   3705
+   ClientHeight    =   5250
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   8655
+   ClientWidth     =   8400
    LinkTopic       =   "Form6"
-   ScaleHeight     =   3705
-   ScaleWidth      =   8655
+   Picture         =   "Tipo de Producto.frx":0000
+   ScaleHeight     =   5250
+   ScaleWidth      =   8400
    StartUpPosition =   3  'Windows Default
    Begin MSComDlg.CommonDialog CommonDialog1 
-      Left            =   480
-      Top             =   360
+      Left            =   1680
+      Top             =   480
       _ExtentX        =   847
       _ExtentY        =   847
       _Version        =   393216
    End
    Begin MSDataListLib.DataCombo DataCombo1 
       Height          =   315
-      Left            =   1800
+      Left            =   5400
       TabIndex        =   18
-      Top             =   2880
+      Top             =   2520
       Width           =   2295
       _ExtentX        =   4048
       _ExtentY        =   556
@@ -30,80 +31,99 @@ Begin VB.Form Form6
       Text            =   "Seleccionar..."
    End
    Begin VB.TextBox Text7 
-      Height          =   405
-      Left            =   5040
+      Height          =   285
+      Left            =   5520
       TabIndex        =   17
-      Top             =   2280
+      Top             =   3960
       Width           =   615
    End
    Begin VB.TextBox Text4 
-      Height          =   405
+      Height          =   285
       Index           =   2
-      Left            =   5760
+      Left            =   6960
       TabIndex        =   15
-      Top             =   1680
+      Top             =   3360
       Width           =   375
    End
    Begin VB.TextBox Text4 
-      Height          =   405
+      Height          =   285
       Index           =   1
-      Left            =   5160
+      Left            =   6240
       TabIndex        =   13
-      Top             =   1680
+      Top             =   3360
       Width           =   375
    End
    Begin VB.TextBox Text4 
-      Height          =   405
+      Height          =   285
       Index           =   0
-      Left            =   4560
+      Left            =   5520
       TabIndex        =   11
-      Top             =   1680
+      Top             =   3360
       Width           =   375
    End
    Begin VB.CommandButton Command3 
       Caption         =   "Borrar"
       Height          =   375
-      Left            =   5880
+      Left            =   1440
       TabIndex        =   9
-      Top             =   3120
+      Top             =   4320
       Width           =   975
    End
    Begin VB.CommandButton Command2 
       Caption         =   "Modificar"
       Height          =   375
-      Left            =   7200
+      Left            =   2760
       TabIndex        =   8
-      Top             =   3120
+      Top             =   4320
       Width           =   975
    End
    Begin VB.CommandButton Command1 
       Caption         =   "Guardar"
       Height          =   375
-      Left            =   4560
+      Left            =   120
       TabIndex        =   7
-      Top             =   3120
+      Top             =   4320
       Width           =   975
    End
    Begin VB.TextBox Text3 
-      Height          =   375
-      Left            =   1800
+      Height          =   285
+      Left            =   5400
       TabIndex        =   6
-      Top             =   2280
+      Top             =   1920
       Width           =   2415
    End
    Begin VB.TextBox Text2 
-      Height          =   375
-      Left            =   1800
+      Height          =   285
+      Left            =   5400
       TabIndex        =   5
-      Top             =   1680
+      Top             =   1440
       Width           =   2415
    End
    Begin VB.TextBox Text1 
-      Height          =   375
-      Left            =   1800
+      Height          =   285
+      Left            =   5400
       TabIndex        =   4
-      Top             =   1080
+      Top             =   960
       Width           =   2415
+   End
+   Begin VB.Label Label11 
+      Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
+      Caption         =   "Talla:"
+      BeginProperty Font 
+         Name            =   "Sylfaen"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   3960
+      TabIndex        =   22
+      Top             =   3240
+      Width           =   1215
    End
    Begin VB.Label ID 
       Height          =   255
@@ -115,7 +135,7 @@ Begin VB.Form Form6
    Begin VB.Label Label10 
       Caption         =   "Label10"
       Height          =   255
-      Left            =   6480
+      Left            =   6960
       TabIndex        =   20
       Top             =   120
       Visible         =   0   'False
@@ -123,9 +143,9 @@ Begin VB.Form Form6
    End
    Begin VB.Image Image1 
       Height          =   2295
-      Left            =   6600
+      Left            =   1200
       Stretch         =   -1  'True
-      Top             =   600
+      Top             =   1560
       Width           =   1695
    End
    Begin VB.Label Label9 
@@ -135,34 +155,38 @@ Begin VB.Form Form6
       TabIndex        =   19
       Top             =   120
       Visible         =   0   'False
-      Width           =   615
+      Width           =   855
    End
    Begin VB.Label Label8 
+      BackStyle       =   0  'Transparent
       Caption         =   "G"
       Height          =   255
-      Left            =   5760
+      Left            =   7080
       TabIndex        =   16
-      Top             =   1200
+      Top             =   3000
       Width           =   375
    End
    Begin VB.Label Label7 
+      BackStyle       =   0  'Transparent
       Caption         =   "M"
       Height          =   255
-      Left            =   5160
+      Left            =   6360
       TabIndex        =   14
-      Top             =   1200
+      Top             =   3000
       Width           =   375
    End
    Begin VB.Label Label6 
+      BackStyle       =   0  'Transparent
       Caption         =   "S"
       Height          =   255
-      Left            =   4560
+      Left            =   5640
       TabIndex        =   12
-      Top             =   1200
+      Top             =   3000
       Width           =   375
    End
    Begin VB.Label Label2 
       Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
       Caption         =   "Tipo de Producto"
       BeginProperty Font 
          Name            =   "Sylfaen"
@@ -173,14 +197,15 @@ Begin VB.Form Form6
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   495
-      Left            =   0
+      Height          =   255
+      Left            =   3480
       TabIndex        =   10
-      Top             =   2880
-      Width           =   1215
+      Top             =   2520
+      Width           =   1695
    End
    Begin VB.Label Label5 
       Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
       Caption         =   "Precio"
       BeginProperty Font 
          Name            =   "Sylfaen"
@@ -192,13 +217,14 @@ Begin VB.Form Form6
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   0
+      Left            =   3960
       TabIndex        =   3
-      Top             =   2280
+      Top             =   1920
       Width           =   1215
    End
    Begin VB.Label Label4 
       Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
       Caption         =   "Descripcion"
       BeginProperty Font 
          Name            =   "Sylfaen"
@@ -210,13 +236,14 @@ Begin VB.Form Form6
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   0
+      Left            =   3960
       TabIndex        =   2
-      Top             =   1680
+      Top             =   1440
       Width           =   1215
    End
    Begin VB.Label Label3 
       Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
       Caption         =   "Etiqueta"
       BeginProperty Font 
          Name            =   "Sylfaen"
@@ -228,13 +255,14 @@ Begin VB.Form Form6
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   0
+      Left            =   3960
       TabIndex        =   1
-      Top             =   1080
+      Top             =   960
       Width           =   1215
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Productos"
       BeginProperty Font 
          Name            =   "MS Serif"

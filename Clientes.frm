@@ -4,18 +4,18 @@ Begin VB.Form Form8
    ClientHeight    =   4365
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   6270
+   ClientWidth     =   5925
    LinkTopic       =   "Form8"
    Picture         =   "Clientes.frx":0000
    ScaleHeight     =   4365
-   ScaleWidth      =   6270
+   ScaleWidth      =   5925
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton cmdgu 
       Caption         =   "Guardar"
       Height          =   375
-      Left            =   4920
+      Left            =   4560
       TabIndex        =   11
-      Top             =   3360
+      Top             =   3480
       Width           =   1215
    End
    Begin VB.TextBox txtema 
@@ -23,28 +23,28 @@ Begin VB.Form Form8
       Left            =   3000
       TabIndex        =   5
       Top             =   2760
-      Width           =   2055
+      Width           =   2415
    End
    Begin VB.TextBox txttel 
       Height          =   285
       Left            =   3000
       TabIndex        =   4
       Top             =   2280
-      Width           =   1935
+      Width           =   1455
    End
    Begin VB.TextBox txtdir 
       Height          =   285
       Left            =   3000
       TabIndex        =   3
       Top             =   1800
-      Width           =   2175
+      Width           =   2415
    End
    Begin VB.TextBox txtruc 
       Height          =   285
       Left            =   3000
       TabIndex        =   2
       Top             =   1320
-      Width           =   2175
+      Width           =   1455
    End
    Begin VB.TextBox txtnomc 
       Height          =   285
@@ -57,6 +57,15 @@ Begin VB.Form Form8
       Alignment       =   1  'Right Justify
       BackStyle       =   0  'Transparent
       Caption         =   "Email:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   1560
       TabIndex        =   10
@@ -67,6 +76,15 @@ Begin VB.Form Form8
       Alignment       =   1  'Right Justify
       BackStyle       =   0  'Transparent
       Caption         =   "Telefono:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   1560
       TabIndex        =   9
@@ -77,6 +95,15 @@ Begin VB.Form Form8
       Alignment       =   1  'Right Justify
       BackStyle       =   0  'Transparent
       Caption         =   "Dirección:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   1560
       TabIndex        =   8
@@ -87,6 +114,15 @@ Begin VB.Form Form8
       Alignment       =   1  'Right Justify
       BackStyle       =   0  'Transparent
       Caption         =   "RUC:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   1560
       TabIndex        =   7
@@ -97,6 +133,15 @@ Begin VB.Form Form8
       Alignment       =   1  'Right Justify
       BackStyle       =   0  'Transparent
       Caption         =   "Nombre:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Left            =   1560
       TabIndex        =   6

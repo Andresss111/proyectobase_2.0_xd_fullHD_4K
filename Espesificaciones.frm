@@ -13,7 +13,7 @@ Begin VB.Form Form4
    Begin MSDataListLib.DataCombo DataCombo1 
       Height          =   315
       Left            =   4440
-      TabIndex        =   11
+      TabIndex        =   10
       Top             =   1920
       Width           =   1695
       _ExtentX        =   2990
@@ -25,23 +25,15 @@ Begin VB.Form Form4
    Begin VB.TextBox Text1 
       Height          =   285
       Left            =   6360
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   1920
       Width           =   495
-   End
-   Begin VB.OptionButton Option2 
-      Caption         =   "Option2"
-      Height          =   255
-      Left            =   7320
-      TabIndex        =   7
-      Top             =   1200
-      Width           =   255
    End
    Begin VB.OptionButton Option1 
       BackColor       =   &H000000C0&
       Caption         =   "Option1"
       Height          =   255
-      Left            =   6720
+      Left            =   5400
       MaskColor       =   &H00FF0000&
       TabIndex        =   6
       Top             =   1200
@@ -59,17 +51,25 @@ Begin VB.Form Form4
       UseMaskColor    =   -1  'True
       Width           =   2895
    End
+   Begin VB.Label Label7 
+      Caption         =   "Talla"
+      Height          =   255
+      Left            =   4440
+      TabIndex        =   11
+      Top             =   1560
+      Width           =   615
+   End
    Begin VB.Label Label6 
       Height          =   255
       Left            =   7320
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   1920
       Width           =   735
    End
    Begin VB.Label VF 
       Height          =   375
       Left            =   240
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   600
       Width           =   495
    End
@@ -83,7 +83,7 @@ Begin VB.Form Form4
    Begin VB.Label Label1 
       Caption         =   "Camiseta deportiva estanpada"
       BeginProperty Font 
-         Name            =   "Transformers Movie"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -105,30 +105,12 @@ Begin VB.Form Form4
       Top             =   360
       Width           =   975
    End
-   Begin VB.Shape Shape1 
-      BackColor       =   &H0080FF80&
-      BackStyle       =   1  'Opaque
-      Height          =   255
-      Left            =   4560
-      Shape           =   2  'Oval
-      Top             =   1320
-      Width           =   255
-   End
-   Begin VB.Shape Shape2 
-      BackColor       =   &H00FF8080&
-      BackStyle       =   1  'Opaque
-      Height          =   255
-      Left            =   5040
-      Shape           =   2  'Oval
-      Top             =   1320
-      Width           =   255
-   End
    Begin VB.Label Label3 
       Caption         =   "Color"
       Height          =   255
-      Left            =   5760
+      Left            =   4440
       TabIndex        =   3
-      Top             =   1320
+      Top             =   1200
       Width           =   615
    End
    Begin VB.Label Label4 
@@ -191,6 +173,10 @@ Private Sub Form_Load()
     DataCombo1.BoundColumn = "Campo1"
     DataCombo1.ListField = "Campo1"
 End Sub
+
+P
+
+Pr
 
 Private Sub Text1_Change()
     If Text1.Text = "" Then Exit Sub
