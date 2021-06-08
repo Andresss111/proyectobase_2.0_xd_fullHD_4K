@@ -78,3 +78,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub cmding_Click()
+    With TU
+        If .State = 1 Then .Close
+        .Open "select * from Login_Ad where [Usuario]like '" & txtusu.Text & "'", base, adOpenStatic, adLockBatchOptimistic
+        If .EOF Or .BOF Then MsgBox "El usuario no existe", vbCritical: Exit Sub
+        .Find "Usuario='" & txtusu.Text & "'"
+        If !Contraseña = txtcon.Text Then Form9.Show Else MsgBox "El usuario y contraseña no coinciden", vbCritical: Exit Sub
+    End With
+End Sub

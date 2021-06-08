@@ -174,9 +174,6 @@ Private Sub Form_Load()
     DataCombo1.ListField = "Campo1"
 End Sub
 
-P
-
-Pr
 
 Private Sub Text1_Change()
     If Text1.Text = "" Then Exit Sub

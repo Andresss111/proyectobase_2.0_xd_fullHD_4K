@@ -7,6 +7,7 @@ Global ITP As New Recordset
 Global Fact As New Recordset
 Global DFact As New Recordset
 Global TTP As New Recordset
+Global TU As New Recordset
 Global Tabla1 As New Recordset
 
 Sub main()
@@ -69,6 +70,13 @@ Sub CTabla1()
     With Tabla1
         If .State = 1 Then .Close
         .Open "select * from Tabla1", base, adOpenStatic, adLockBatchOptimistic
+    End With
+End Sub
+
+Sub CTU()
+    With TU
+        If .State = 1 Then .Close
+        .Open "select * from Login_Ad", base, adOpenStatic, adLockBatchOptimistic
     End With
 End Sub
 
