@@ -286,6 +286,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Command1_Click()
+    If DataCombo1.Text = "Seleccionar..." Then MsgBox "Seleccione un tipo de producto": Exit Sub
     CTP
     With TP
         .AddNew
@@ -306,9 +307,12 @@ Private Sub Command1_Click()
 End Sub
 
 Private Sub Command2_Click()
-    x = Form1.Label5.Caption
+    If DataCombo1.Text = "Seleccionar..." Then MsgBox "Seleccione un tipo de producto": Exit Sub
+    'If Text1.Text = "" Or Text2.Text = "" Or Text3.Text = "" Or Text4(0).Text = "" Or Text4(1).Text = "" Or Text4(2).Text = "" Or Text7.Text = "" Then MsgBox "Rellene los campos": Exit Sub
+    x = ID.Caption
     CTP
     With TP
+        .Find "Id_Producto='" & ID.Caption & "'"
         !Etiqueta = Trim(Text1.Text)
         !Descripcion = Trim(Text2.Text)
         !Precio = Trim(Text3.Text)
@@ -319,10 +323,17 @@ Private Sub Command2_Click()
         !URL = Trim(Label9.Caption)
         !Id_TP_FK = Trim(Label10.Caption)
         .UpdateBatch
-        .MoveLast
-        ID.Caption = !Id_Producto
     End With
     
+End Sub
+
+Private Sub Command3_Click()
+    CTP
+    With TP
+        .Find "Id_Producto='" & ID.Caption & "'"
+        '.Delete 'psdt duda existencial si le borro o no por lo del detalle fact
+        '.UpdateBatch
+    End With
 End Sub
 
 Private Sub DataCombo1_Change()

@@ -66,14 +66,6 @@ Begin VB.Form Form2
       TabIndex        =   0
       Top             =   360
       Width           =   7215
-      Begin VB.CommandButton Command2 
-         Caption         =   "Command2"
-         Height          =   255
-         Left            =   1080
-         TabIndex        =   23
-         Top             =   4920
-         Width           =   615
-      End
       Begin VB.CommandButton Command1 
          Caption         =   "Guardar"
          Height          =   375
@@ -409,11 +401,19 @@ Begin VB.Form Form2
          Width           =   1095
       End
    End
+   Begin VB.Label Label13 
+      Caption         =   "Label13"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   24
+      Top             =   3720
+      Width           =   255
+   End
    Begin VB.Label bloq 
       Caption         =   "Label13"
       Height          =   495
       Left            =   120
-      TabIndex        =   24
+      TabIndex        =   23
       Top             =   2520
       Width           =   255
    End
@@ -477,11 +477,12 @@ Private Sub Command1_Click()
             f = !Total
             Label12.Caption = !ID
         End With
+        Label13.Caption = c
         CTP
         With TP
-            If c = "S" Then !Talla_S = Val(!Talla_S) - Val(d)
-            If c = "M" Then !Talla_M = Val(!Talla_M) - Val(d)
-            If c = "G" Then !Talla_G = Val(!Talla_G) - Val(d)
+            If Label13.Caption = "S" Then !Talla_S = Val(!Talla_S) - Val(d)
+            If Label13.Caption = "M" Then !Talla_M = Val(!Talla_M) - Val(d)
+            If Label13.Caption = "G" Then !Talla_G = Val(!Talla_G) - Val(d)
             .UpdateBatch
         End With
         CDFact

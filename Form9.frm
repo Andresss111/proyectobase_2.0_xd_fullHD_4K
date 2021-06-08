@@ -38,4 +38,6 @@ End Sub
 
 Private Sub Command2_Click()
     Form6.Show
+    Form6.Command3.Enabled = False
+    Form6.Command2.Enabled = False
 End Sub

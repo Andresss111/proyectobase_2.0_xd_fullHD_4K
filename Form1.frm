@@ -100,6 +100,7 @@ Begin VB.Form Form1
       Left            =   11880
       TabIndex        =   23
       Top             =   480
+      Visible         =   0   'False
       Width           =   1215
    End
    Begin VB.Label Label7 
@@ -518,7 +519,7 @@ Private Sub Image1_Click(Index As Integer)
             Form6.Text4(0).Text = Trim(!Talla_S)
             Form6.Text4(1).Text = Trim(!Talla_M)
             Form6.Text4(2).Text = Trim(!Talla_G)
-            
+            Form6.ID.Caption = Trim(!Id_Producto)
             
         Else
             Form4.Show

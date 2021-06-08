@@ -27,7 +27,9 @@ Begin VB.Form Form7
    End
    Begin VB.TextBox txtcon 
       Height          =   285
+      IMEMode         =   3  'DISABLE
       Left            =   1560
+      PasswordChar    =   "*"
       TabIndex        =   4
       Top             =   1440
       Width           =   2415
