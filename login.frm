@@ -43,7 +43,7 @@ Begin VB.Form Form5
          Width           =   780
       End
       Begin VB.Image Image1 
-         Height          =   825
+         Height          =   780
          Left            =   600
          Picture         =   "login.frx":5CC2
          Top             =   840
@@ -56,3 +56,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Command1_Click()
+    Form9.Show
+    Me.Hide
+End Sub
+
+Private Sub Command2_Click()
+    Form1.Show
+    Me.Hide
+End Sub

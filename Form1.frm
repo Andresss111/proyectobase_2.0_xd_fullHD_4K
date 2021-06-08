@@ -373,7 +373,8 @@ Private Sub Command2_Click()
             If Trim(!URL) = "" Then
                 Image1(x).Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
-                Image1(x).Picture = LoadPicture(Trim(!URL))
+                y = App.Path
+                Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Label4(x).Caption = !Etiqueta
             Label6(x).Caption = !Id_Producto
@@ -398,7 +399,8 @@ Private Sub Command3_Click()
             If Trim(!URL) = "" Then
                 Image1(i).Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
-                Image1(i).Picture = LoadPicture(Trim(!URL))
+                y = App.Path
+                Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Label4(i).Caption = !Etiqueta
             Label6(i).Caption = !Id_Producto
@@ -429,7 +431,7 @@ Private Sub Form_Load()
                 Image1(i).Picture = LoadPicture("C:\Proyecto\final\img\nimg.jpg")
             Else
                 y = App.Path
-                'Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
+                Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Label4(i).Caption = !Etiqueta
             Label6(i).Caption = !Id_Producto
@@ -447,6 +449,7 @@ Private Sub Form_Load()
         With Temp
             .Delete
             .MoveNext
+            .UpdateBatch
         End With
     Next i
 End Sub

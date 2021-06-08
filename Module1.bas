@@ -6,12 +6,14 @@ Global Temp As New Recordset
 Global ITP As New Recordset
 Global Fact As New Recordset
 Global DFact As New Recordset
+Global TTP As New Recordset
+Global Tabla1 As New Recordset
 
 Sub main()
     With base
         .CursorLocation = adUseClient
         .Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\base\base.mdb;Persist Security Info=False"
-        Form1.Show
+        Form5.Show
     End With
 End Sub
 
@@ -56,39 +58,17 @@ Sub CDFact()
     End With
 End Sub
 
-Sub copiar()
-    Dim x, a, b, d As String
-    Dim e As Integer
-    e = 1
-    CTP
-    With TP
-        d = .RecordCount
+Sub CTTP()
+    With TTP
+        If .State = 1 Then .Close
+        .Open "select * from Tipo_de_Producto", base, adOpenStatic, adLockBatchOptimistic
     End With
-        For i = 1 To d
-            CTP
-            With TP
-                If i = 1 Then
-                    .MoveFirst
-                Else
-                    For x = 1 To e
-                    .MoveNext
-                    Next x
-                End If
-                If .EOF Or .BOF Then
-                Else
-                    a = !Id_Producto
-                    b = !Etiqueta
-                    c = !URL
-                    e = e + 1
-                End If
-            End With
-            CITP
-            With ITP
-                .AddNew
-                !Id_Producto = a
-                !Etiqueta = b
-                !URL = c
-                .UpdateBatch
-            End With
-        Next i
 End Sub
+
+Sub CTabla1()
+    With Tabla1
+        If .State = 1 Then .Close
+        .Open "select * from Tabla1", base, adOpenStatic, adLockBatchOptimistic
+    End With
+End Sub
+

@@ -475,7 +475,14 @@ Private Sub Command1_Click()
             d = !Cantidad
             e = !Precio
             f = !Total
-            Label12.Caption = !Id
+            Label12.Caption = !ID
+        End With
+        CTP
+        With TP
+            If c = "S" Then !Talla_S = Val(!Talla_S) - Val(d)
+            If c = "M" Then !Talla_M = Val(!Talla_M) - Val(d)
+            If c = "G" Then !Talla_G = Val(!Talla_G) - Val(d)
+            .UpdateBatch
         End With
         CDFact
         With DFact
@@ -491,16 +498,19 @@ Private Sub Command1_Click()
         End With
     Next i
     CTEMP
+    Set DataGrid1.DataSource = Temp
     With Temp
-        For i = 1 To .RecordCount
+        x = .RecordCount
+    End With
+    For i = 1 To x
+        With Temp
             .Delete
             .MoveNext
-        Next i
-    End With
+            .UpdateBatch
+        End With
+    Next i
     Form1.Show
     Form2.Hide
-    CTEMP
-    Set DataGrid1.DataSource = Temp
 End Sub
 
 Private Sub Command2_Click()
