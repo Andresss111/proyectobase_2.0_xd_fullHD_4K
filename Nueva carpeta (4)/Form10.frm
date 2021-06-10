@@ -25,15 +25,14 @@ Attribute VB_Exposed = False
 Private Sub Text1_Change()
     CFact
     With Fact
-        X = Text1.Text
+        x = Text1.Text
         If .State = 1 Then .Close
-        Y = "True"
-        .Open "select * from Factura where [Id_C]like '" & X & "' and [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
+        y = "True"
+        .Open "select * from Factura where [Id_C]like '" & x & "' and [Valido]like '" & y & "'", base, adOpenStatic, adLockBatchOptimistic
         If .EOF Or .BOF Then Exit Sub
-        Form9.Label3.Caption = X
+        Form9.Label3.Caption = x
         Me.Hide
     End With
     Form9.Label2 = "T"
-    Form9.Label4.Caption = "1"
     Set Form9.DataGrid1.DataSource = Fact
 End Sub

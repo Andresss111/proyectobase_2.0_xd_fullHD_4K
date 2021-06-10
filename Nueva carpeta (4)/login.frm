@@ -64,6 +64,5 @@ End Sub
 Private Sub Command2_Click()
     Form1.Show
     Form1.Label8.Caption = 0
-    Form1.inicio
     Me.Hide
 End Sub

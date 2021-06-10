@@ -10,14 +10,6 @@ Begin VB.Form Form1
    ScaleHeight     =   9000
    ScaleWidth      =   16155
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton Command5 
-      Caption         =   "Command5"
-      Height          =   375
-      Left            =   3360
-      TabIndex        =   24
-      Top             =   840
-      Width           =   495
-   End
    Begin VB.CommandButton Command4 
       Caption         =   "Command4"
       Height          =   495
@@ -381,24 +373,24 @@ Private Sub Command2_Click()
     CTP
     If Form3.DataCombo1.Text <> "Seleccionar..." Then Form3.bus
     With TP
-        X = Label7.Caption
-        .Find "Id_Producto='" & X & "'"
-        X = 6
+        x = Label7.Caption
+        .Find "Id_Producto='" & x & "'"
+        x = 6
         For i = 0 To 6
             If .EOF Or .BOF Then Exit Sub
             If i > 0 Then .MovePrevious
             If .EOF Or .BOF Then Exit Sub
             If Trim(!URL) = "" Then
-                Image1(X).Picture = LoadPicture("& App.Path &\img\df.jpg")
+                Image1(x).Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
-                Y = App.Path
-                Image1(i).Picture = LoadPicture(Y & "\img\" & Trim(!URL))
+                y = App.Path
+                Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
-            Label4(X).Caption = !Etiqueta
-            Label6(X).Caption = !Id_Producto
-            Image1(X).Visible = True
-            Label4(X).Visible = True
-            X = X - 1
+            Label4(x).Caption = !Etiqueta
+            Label6(x).Caption = !Id_Producto
+            Image1(x).Visible = True
+            Label4(x).Visible = True
+            x = x - 1
         Next i
         Label7.Caption = !Id_Producto
     End With
@@ -409,8 +401,8 @@ Private Sub Command3_Click()
     CTP
     If Form3.DataCombo1.Text <> "Seleccionar..." Then Form3.bus
     With TP
-        X = Label7.Caption
-        .Find "Id_Producto='" & X & "'"
+        x = Label7.Caption
+        .Find "Id_Producto='" & x & "'"
         For i = 0 To 6
             If .EOF Or .BOF Then Exit Sub
             .MoveNext
@@ -418,8 +410,8 @@ Private Sub Command3_Click()
             If Trim(!URL) = "" Then
                 Image1(i).Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
-                Y = App.Path
-                Image1(i).Picture = LoadPicture(Y & "\img\" & Trim(!URL))
+                y = App.Path
+                Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Label4(i).Caption = !Etiqueta
             Label6(i).Caption = !Id_Producto
@@ -434,16 +426,7 @@ Private Sub Command4_Click()
     Form2.Show
 End Sub
 
-Private Sub Command5_Click()
-    If Label8.Caption = 1 Then Form9.Show Else Form5.Show
-    Form1.Hide
-End Sub
-
 Private Sub Form_Load()
-    inicio
-End Sub
-
-Sub inicio()
     CTP
     With TP
         invicible
@@ -458,8 +441,8 @@ Sub inicio()
             If Trim(!URL) = "" Then
                 Image1(i).Picture = LoadPicture("C:\Proyecto\final\img\nimg.jpg")
             Else
-                Y = App.Path
-                Image1(i).Picture = LoadPicture(Y & "\img\" & Trim(!URL))
+                y = App.Path
+                Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Label4(i).Caption = !Etiqueta
             Label6(i).Caption = !Id_Producto
@@ -471,9 +454,9 @@ Sub inicio()
     CTEMP
     With Temp
         If .EOF Or .BOF Then Exit Sub
-        X = .RecordCount
+        x = .RecordCount
     End With
-    For i = 1 To X
+    For i = 1 To x
         With Temp
             .Delete
             .MoveNext
@@ -517,19 +500,19 @@ End Sub
 
 Private Sub Image1_Click(Index As Integer)
     Label5.Caption = Index
-    X = Label5.Caption
-    Label5.Caption = Label6(X).Caption
-    X = Label5.Caption
+    x = Label5.Caption
+    Label5.Caption = Label6(x).Caption
+    x = Label5.Caption
     CTP
     With TP
-        .Find "Id_Producto='" & X & "'"
+        .Find "Id_Producto='" & x & "'"
         If Label8.Caption = 1 Then
             Form6.Show
             If Trim(!URL) = "" Then
                 Form6.Image1.Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
-                Y = App.Path
-                Form6.Image1.Picture = LoadPicture(Y & "\img\" & Trim(!URL))
+                y = App.Path
+                Form6.Image1.Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Form6.Text1.Text = Trim(!Etiqueta)
             Form6.Text2.Text = Trim(!Descripcion)
@@ -545,18 +528,14 @@ Private Sub Image1_Click(Index As Integer)
             If Trim(!URL) = "" Then
                 Form4.Image2.Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
-                Y = App.Path
-                Form4.Image2.Picture = LoadPicture(Y & "\img\" & Trim(!URL))
+                y = App.Path
+                Form4.Image2.Picture = LoadPicture(y & "\img\" & Trim(!URL))
             End If
             Form4.Label1.Caption = Trim(!Etiqueta)
             Form4.Label4.Caption = Trim(!Descripcion)
             Form4.Label2.Caption = Trim(!Precio)
+            'If !Color = "rojo" Then Form4.Shape1.BackColor = &HFF&
             Form4.Text1.Enabled = False
-            Form4.Label6.Caption = ""
-            Form4.Label8.Caption = ""
-            Form4.Text1.Text = ""
-            Form4.DataCombo1.Text = "Seleccionar..."
-            Form4.Command1.Enabled = False
         End If
     End With
 End Sub

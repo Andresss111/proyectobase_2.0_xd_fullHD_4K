@@ -86,11 +86,7 @@ Private Sub cmding_Click()
         .Open "select * from Login_Ad where [Usuario]like '" & txtusu.Text & "'", base, adOpenStatic, adLockBatchOptimistic
         If .EOF Or .BOF Then MsgBox "El usuario no existe", vbCritical: Exit Sub
         .Find "Usuario='" & txtusu.Text & "'"
-        If !Contraseña = txtcon.Text Then Form9.Show: Form7.Hide Else MsgBox "El usuario y contraseña no coinciden", vbCritical: Exit Sub
+        If !Contraseña = txtcon.Text Then Form9.Show Else MsgBox "El usuario y contraseña no coinciden", vbCritical: Exit Sub
+        
     End With
-End Sub
-
-Private Sub cmdsal_Click()
-    Form5.Show
-    Form7.Hide
 End Sub

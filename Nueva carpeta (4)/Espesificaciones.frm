@@ -51,14 +51,6 @@ Begin VB.Form Form4
       UseMaskColor    =   -1  'True
       Width           =   2895
    End
-   Begin VB.Label Label8 
-      Caption         =   "Label8"
-      Height          =   255
-      Left            =   6480
-      TabIndex        =   12
-      Top             =   1440
-      Width           =   375
-   End
    Begin VB.Label Label7 
       Caption         =   "Talla"
       Height          =   255
@@ -160,26 +152,19 @@ Private Sub Command1_Click()
     Form4.Hide
 End Sub
 
-Private Sub DataCombo1_Change()
+Private Sub DataCombo1_Click(Area As Integer)
     CTP
     With TP
-        X = Form1.Label5.Caption
-        .Find "Id_Producto='" & X & "'"
-        If DataCombo1.BoundText = "S" Then If Val(Trim(!Talla_S)) = 0 Then MsgBox "NO EXISTE EN STOCK": DataCombo1.Text = "Seleccionar...": Exit Sub Else Label8.Caption = !Talla_S
-        If DataCombo1.BoundText = "M" Then If Val(Trim(!Talla_M)) = 0 Then MsgBox "NO EXISTE EN STOCK": DataCombo1.Text = "Seleccionar...": Exit Sub Else Label8.Caption = !Talla_M
-        If DataCombo1.BoundText = "G" Then If Val(Trim(!Talla_G)) = 0 Then MsgBox "NO EXISTE EN STOCK": DataCombo1.Text = "Seleccionar...": Exit Sub Else Label8.Caption = !Talla_G
+        x = Form1.Label5.Caption
+        .Find "Id_Producto='" & x & "'"
+        If DataCombo1.BoundText = "S" Then If Val(Trim(!Talla_S)) = 0 Then MsgBox "NO EXISTE EN STOCK": DataCombo1.Text = "Seleccionar...": Exit Sub
+        If DataCombo1.BoundText = "M" Then If Val(Trim(!Talla_M)) = 0 Then MsgBox "NO EXISTE EN STOCK": DataCombo1.Text = "Seleccionar...": Exit Sub
+        If DataCombo1.BoundText = "G" Then If Val(Trim(!Talla_G)) = 0 Then MsgBox "NO EXISTE EN STOCK": DataCombo1.Text = "Seleccionar...": Exit Sub
     End With
     If DataCombo1.Text = "Seleccionar..." Then Exit Sub
     Command1.Enabled = True
     Text1.Enabled = True
     Text1.SetFocus
-End Sub
-
-Private Sub DataCombo1_Click(Area As Integer)
-    CTabla1
-    Set DataCombo1.RowSource = Tabla1
-    DataCombo1.BoundColumn = "Campo1"
-    DataCombo1.ListField = "Campo1"
 End Sub
 
 Private Sub Form_Load()
@@ -194,8 +179,8 @@ Private Sub Text1_Change()
     If Text1.Text = "" Then Exit Sub
     CTP
     With TP
-        X = Form1.Label5.Caption
-        .Find "Id_Producto='" & X & "'"
+        x = Form1.Label5.Caption
+        .Find "Id_Producto='" & x & "'"
         If DataCombo1.BoundText = "S" Then If Text1.Text > Val(Trim(!Talla_S)) Then MsgBox "Supera el stock": Text1.Text = "": Exit Sub
         If DataCombo1.BoundText = "M" Then If Text1.Text > Val(Trim(!Talla_M)) Then MsgBox "Supera el stock": Text1.Text = "": Exit Sub
         If DataCombo1.BoundText = "G" Then If Text1.Text > Val(Trim(!Talla_G)) Then MsgBox "Supera el stock": Text1.Text = "": Exit Sub
