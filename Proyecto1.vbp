@@ -18,6 +18,7 @@ Form=Clientes.frm
 Form=Form9.frm
 Object={5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0; MSFLXGRD.OCX
 Object={F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0; MSDATLST.OCX
+Form=Form10.frm
 IconForm="Form1"
 Startup="Sub Main"
 HelpFile=""

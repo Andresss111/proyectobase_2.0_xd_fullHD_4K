@@ -10,10 +10,18 @@ Begin VB.Form Form8
    ScaleHeight     =   4365
    ScaleWidth      =   5925
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command1 
+      Caption         =   "Modificar"
+      Height          =   375
+      Left            =   3000
+      TabIndex        =   12
+      Top             =   3480
+      Width           =   1215
+   End
    Begin VB.CommandButton cmdgu 
       Caption         =   "Guardar"
       Height          =   375
-      Left            =   4560
+      Left            =   4440
       TabIndex        =   11
       Top             =   3480
       Width           =   1215
@@ -52,6 +60,15 @@ Begin VB.Form Form8
       TabIndex        =   1
       Top             =   840
       Width           =   2415
+   End
+   Begin VB.Label Label7 
+      Caption         =   "Label7"
+      Enabled         =   0   'False
+      Height          =   495
+      Left            =   240
+      TabIndex        =   13
+      Top             =   1320
+      Width           =   495
    End
    Begin VB.Label Label6 
       Alignment       =   1  'Right Justify
@@ -173,21 +190,68 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub cmdgu_Click()
-    CTC
-    If txtruc.Text = "" Or txtnomc.Text = "" Or txttel.Text = "" Or txtdir.Text = "" Then MsgBox "Por favor rellenar los campos requeridos": Exit Sub
-    With Clientes
-    
-    
-        .AddNew
-        !Id_C = txtruc.Text
-        !Nombre = txtnomc.Text
-        !Celular = txttel.Text
-        !Dirección = txtdir.Text
-        !Email = txtema.Text
-        .UpdateBatch
-   
-        
-    End With
-    Form8.Hide
+    If Label7.Caption <> "F" Then
+        CTC
+        If txtruc.Text = "" Or txtnomc.Text = "" Or txttel.Text = "" Or txtdir.Text = "" Then MsgBox "Por favor rellenar los campos requeridos": Exit Sub
+        With Clientes
+            x = Label7.Caption
+            .Find "Id_C='" & x & "'"
+            !Id_C = txtruc.Text
+            !Nombre = txtnomc.Text
+            !Celular = txttel.Text
+            !Dirección = txtdir.Text
+            !Email = txtema.Text
+            .UpdateBatch
+        End With
+        Form8.Hide
+    Else
+        CTC
+        If txtruc.Text = "" Or txtnomc.Text = "" Or txttel.Text = "" Or txtdir.Text = "" Then MsgBox "Por favor rellenar los campos requeridos": Exit Sub
+        With Clientes
+            .AddNew
+            !Id_C = txtruc.Text
+            !Nombre = txtnomc.Text
+            !Celular = txttel.Text
+            !Dirección = txtdir.Text
+            !Email = txtema.Text
+            .UpdateBatch
+        End With
+        Form8.Hide
+    End If
 End Sub
 
+Private Sub Command1_Click()
+    If MsgBox("Esta seguro de editar el registro", vbYesNo) = vbNo Then Exit Sub
+    txtruc.SetFocus
+    txtnomc.Text = ""
+    txttel.Text = ""
+    txtdir.Text = ""
+    txtema.Text = ""
+    txtnomc.Enabled = False
+    txttel.Enabled = False
+    txtdir.Enabled = False
+    txtema.Enabled = False
+    Label7.Caption = "T"
+End Sub
+
+Private Sub txtruc_Change()
+    If Label7.Caption = "F" Then Exit Sub
+    CTP
+    With Clientes
+        x = txtruc.Text
+        If .State = 1 Then .Close
+        .Open "select * from Cliente where [Id_C]like '" & x & "'", base, adOpenStatic, adLockBatchOptimistic
+        If .EOF Or .BOF Then Exit Sub
+        .Find "Id_C = '" & x & "'"
+        If .EOF Or .BOF Then Exit Sub
+        txtnomc.Text = !Nombre
+        txtdir.Text = !Dirección
+        txttel.Text = !Celular
+        txtema.Text = !Email
+        Label7.Caption = !Id_C
+        txtnomc.Enabled = True
+        txttel.Enabled = True
+        txtdir.Enabled = True
+        txtema.Enabled = True
+    End With
+End Sub

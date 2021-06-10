@@ -371,6 +371,7 @@ End Sub
 Private Sub Command2_Click()
     invicible
     CTP
+    If Form3.DataCombo1.Text <> "Seleccionar..." Then Form3.bus
     With TP
         x = Label7.Caption
         .Find "Id_Producto='" & x & "'"
@@ -398,6 +399,7 @@ End Sub
 Private Sub Command3_Click()
     invicible
     CTP
+    If Form3.DataCombo1.Text <> "Seleccionar..." Then Form3.bus
     With TP
         x = Label7.Caption
         .Find "Id_Producto='" & x & "'"

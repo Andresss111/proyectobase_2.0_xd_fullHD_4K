@@ -152,7 +152,7 @@ Begin VB.Form Form2
          Left            =   5760
          TabIndex        =   17
          Text            =   "12%"
-         Top             =   4800
+         Top             =   5160
          Width           =   735
       End
       Begin VB.TextBox Text2 
@@ -160,7 +160,7 @@ Begin VB.Form Form2
          Height          =   285
          Left            =   5760
          TabIndex        =   16
-         Top             =   5160
+         Top             =   4800
          Width           =   735
       End
       Begin VB.TextBox Text1 
@@ -225,7 +225,7 @@ Begin VB.Form Form2
          Height          =   255
          Left            =   4800
          TabIndex        =   14
-         Top             =   5160
+         Top             =   4800
          Width           =   735
       End
       Begin VB.Label Label9 
@@ -263,7 +263,7 @@ Begin VB.Form Form2
          Height          =   255
          Left            =   4800
          TabIndex        =   12
-         Top             =   4800
+         Top             =   5160
          Width           =   735
       End
       Begin VB.Label Label7 
@@ -439,7 +439,11 @@ Private Sub cmdcli_Click()
     Form8.txtruc = ""
     Form8.txttel = ""
     Form8.txtnomc.SetFocus
-    
+    Form8.txtnomc.Enabled = True
+    Form8.txttel.Enabled = True
+    Form8.txtdir.Enabled = True
+    Form8.txtema.Enabled = True
+    Form8.Label7.Caption = "F"
 End Sub
 
 Private Sub Command1_Click()
@@ -449,10 +453,11 @@ Private Sub Command1_Click()
     With Fact
         .AddNew
         !Id_C = txtruc.Text
-        !Fecha = Data
+        !Fecha = Date
         !Subtotal = Text2.Text
         !IVA = CDbl(Text3.Text)
-        !Total = Text1.Text
+        !Total = CDbl(Text1.Text)
+        !Valido = "True"
         .UpdateBatch
         Label11.Caption = !Id_F
     End With
@@ -580,8 +585,8 @@ Private Sub txtruc_Change()
             Text2.Text = Val(Text2.Text) + Val(!Total)
         Next i
     End With
-    Text3.Text = Val(Text2.Text) * 0.12
-    Text1.Text = Val(Text2.Text) + Val(Text3.Text)
+    Text3.Text = CDbl(Text2.Text) * 0.12
+    Text1.Text = CDbl(Text2.Text) + CDbl(Text3.Text)
     CTEMP
     Set DataGrid1.DataSource = Temp
 End Sub
