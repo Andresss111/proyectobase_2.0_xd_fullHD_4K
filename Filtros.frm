@@ -93,8 +93,8 @@ Private Sub DataCombo1_Change()
     CTP
     With TP
         If .State = 1 Then .Close
-        x = Label4.Caption
-        .Open "select * from Producto where [Id_TP_FK]like '" & x & "'", base, adOpenStatic, adLockBatchOptimistic
+        X = Label4.Caption
+        .Open "select * from Producto where [Id_TP_FK]like '" & X & "'", base, adOpenStatic, adLockBatchOptimistic
         Form1.invicible
         For i = 0 To 6
             If .EOF Or .BOF Then Exit Sub
@@ -107,8 +107,8 @@ Private Sub DataCombo1_Change()
             If Trim(!URL) = "" Then
                 Form1.Image1(i).Picture = LoadPicture("C:\Proyecto\final\img\nimg.jpg")
             Else
-                y = App.Path
-                Form1.Image1(i).Picture = LoadPicture(y & "\img\" & Trim(!URL))
+                Y = App.Path
+                Form1.Image1(i).Picture = LoadPicture(Y & "\img\" & Trim(!URL))
             End If
             Form1.Label4(i).Caption = !Etiqueta
             Form1.Label6(i).Caption = !Id_Producto
@@ -140,7 +140,8 @@ End Sub
 Sub bus()
     With TP
         If .State = 1 Then .Close
-        x = Label4.Caption
-        .Open "select * from Producto where [Id_TP_FK]like '" & x & "'", base, adOpenStatic, adLockBatchOptimistic
+        X = Label4.Caption
+        .Open "select * from Producto where [Id_TP_FK]like '" & X & "'", base, adOpenStatic, adLockBatchOptimistic
     End With
 End Sub
+

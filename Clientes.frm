@@ -194,8 +194,8 @@ Private Sub cmdgu_Click()
         CTC
         If txtruc.Text = "" Or txtnomc.Text = "" Or txttel.Text = "" Or txtdir.Text = "" Then MsgBox "Por favor rellenar los campos requeridos": Exit Sub
         With Clientes
-            x = Label7.Caption
-            .Find "Id_C='" & x & "'"
+            X = Label7.Caption
+            .Find "Id_C='" & X & "'"
             !Id_C = txtruc.Text
             !Nombre = txtnomc.Text
             !Celular = txttel.Text
@@ -238,11 +238,11 @@ Private Sub txtruc_Change()
     If Label7.Caption = "F" Then Exit Sub
     CTP
     With Clientes
-        x = txtruc.Text
+        X = txtruc.Text
         If .State = 1 Then .Close
-        .Open "select * from Cliente where [Id_C]like '" & x & "'", base, adOpenStatic, adLockBatchOptimistic
+        .Open "select * from Cliente where [Id_C]like '" & X & "'", base, adOpenStatic, adLockBatchOptimistic
         If .EOF Or .BOF Then Exit Sub
-        .Find "Id_C = '" & x & "'"
+        .Find "Id_C = '" & X & "'"
         If .EOF Or .BOF Then Exit Sub
         txtnomc.Text = !Nombre
         txtdir.Text = !Dirección
@@ -255,3 +255,4 @@ Private Sub txtruc_Change()
         txtema.Enabled = True
     End With
 End Sub
+

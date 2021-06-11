@@ -463,9 +463,9 @@ Private Sub Command1_Click()
     End With
     CTEMP
     With Temp
-        x = .RecordCount
+        X = .RecordCount
     End With
-    For i = 1 To x
+    For i = 1 To X
         CTEMP
         With Temp
             If i = 1 Then
@@ -506,9 +506,9 @@ Private Sub Command1_Click()
     CTEMP
     Set DataGrid1.DataSource = Temp
     With Temp
-        x = .RecordCount
+        X = .RecordCount
     End With
-    For i = 1 To x
+    For i = 1 To X
         With Temp
             .Delete
             .MoveNext
@@ -523,9 +523,9 @@ Private Sub Command2_Click()
     CTEMP
     Set DataGrid1.DataSource = Temp
     With Temp
-        x = .RecordCount
+        X = .RecordCount
     End With
-    For i = 1 To x
+    For i = 1 To X
         With Temp
             .Delete
             .MoveNext
@@ -563,11 +563,11 @@ Private Sub txtruc_Change()
     If bloq.Caption = "1" Then Exit Sub
     CTP
     With Clientes
-        x = txtruc.Text
+        X = txtruc.Text
         If .State = 1 Then .Close
-        .Open "select * from Cliente where [Id_C]like '" & x & "'", base, adOpenStatic, adLockBatchOptimistic
+        .Open "select * from Cliente where [Id_C]like '" & X & "'", base, adOpenStatic, adLockBatchOptimistic
         If .EOF Or .BOF Then Exit Sub
-        .Find "Id_C = '" & x & "'"
+        .Find "Id_C = '" & X & "'"
         If .EOF Or .BOF Then Exit Sub
         txtnom.Text = !Nombre
         txtdir.Text = !Dirección
@@ -590,3 +590,4 @@ Private Sub txtruc_Change()
     CTEMP
     Set DataGrid1.DataSource = Temp
 End Sub
+

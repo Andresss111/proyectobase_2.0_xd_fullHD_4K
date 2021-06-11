@@ -309,7 +309,7 @@ End Sub
 Private Sub Command2_Click()
     If DataCombo1.Text = "Seleccionar..." Then MsgBox "Seleccione un tipo de producto": Exit Sub
     'If Text1.Text = "" Or Text2.Text = "" Or Text3.Text = "" Or Text4(0).Text = "" Or Text4(1).Text = "" Or Text4(2).Text = "" Or Text7.Text = "" Then MsgBox "Rellene los campos": Exit Sub
-    x = ID.Caption
+    X = ID.Caption
     CTP
     With TP
         .Find "Id_Producto='" & ID.Caption & "'"
@@ -372,3 +372,4 @@ Private Sub Text4_Change(Index As Integer)
     Text7.Text = Val(Text4(0).Text) + Val(Text4(1).Text) + Val(Text4(2).Text)
     If KeyAscii = "13" Then If Index = "0" Then Text4(1).SetFocus
 End Sub
+

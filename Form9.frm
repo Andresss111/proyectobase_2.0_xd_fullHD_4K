@@ -15,6 +15,7 @@ Begin VB.Form Form9
       Height          =   330
       Left            =   1920
       Top             =   3000
+      Visible         =   0   'False
       Width           =   1200
       _ExtentX        =   2117
       _ExtentY        =   582
@@ -61,6 +62,7 @@ Begin VB.Form Form9
       Height          =   330
       Left            =   480
       Top             =   3000
+      Visible         =   0   'False
       Width           =   1200
       _ExtentX        =   2117
       _ExtentY        =   582
@@ -286,6 +288,7 @@ Begin VB.Form Form9
       Left            =   3840
       TabIndex        =   7
       Top             =   120
+      Visible         =   0   'False
       Width           =   615
    End
    Begin VB.Label Label2 
@@ -294,6 +297,7 @@ Begin VB.Form Form9
       Left            =   2880
       TabIndex        =   6
       Top             =   120
+      Visible         =   0   'False
       Width           =   615
    End
    Begin VB.Label Label1 
@@ -357,9 +361,6 @@ Private Sub Command3_Click()
     If Label2.Caption = "T" Then carga2
 End Sub
 
-Sub nn()
-End Sub
-
 Private Sub Command4_Click()
     Label2.Caption = "F"
     Form10.Show
@@ -371,18 +372,13 @@ Private Sub Command5_Click()
     Form9.Hide
 End Sub
 
-Private Sub Command6_Click()
-    CDFact
-    Set DataGrid1.DataSource = DFact
-End Sub
-
 Private Sub Command7_Click()
     Set DataGrid1.DataSource = Nothing
     If Command7.Caption = "Ver Facturas False" Then
         Adodc2.CursorLocation = adUseClient
         Adodc2.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\base\base.mdb;Persist Security Info=False"
-        x = "False"
-        Adodc2.RecordSource = "select * from Factura where [Valido]like '" & x & "'"
+        X = "False"
+        Adodc2.RecordSource = "select * from Factura where [Valido]like '" & X & "'"
         Set DataGrid1.DataSource = Adodc2
         Command7.Caption = "Ver Facturas True"
     Else
@@ -392,6 +388,7 @@ Private Sub Command7_Click()
 End Sub
 
 Private Sub DataGrid1_Click()
+    If DataGrid1.ApproxCount < 1 Then Exit Sub
     Command3.Enabled = True
     If Label2.Caption = "T" Then
         With Fact
@@ -407,17 +404,17 @@ End Sub
 Sub carga()
     Adodc1.CursorLocation = adUseClient
     Adodc1.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\base\base.mdb;Persist Security Info=False"
-    x = "True"
-    Adodc1.RecordSource = "select * from Factura where [Valido]like '" & x & "'"
+    X = "True"
+    Adodc1.RecordSource = "select * from Factura where [Valido]like '" & X & "'"
     Set DataGrid1.DataSource = Adodc1
 End Sub
 
 Sub carga2()
     With Fact
         If .State = 1 Then .Close
-        x = Label3.Caption
-        y = "True"
-        .Open "select * from Factura where [Id_C]like '" & x & "' and [Valido]like '" & y & "'", base, adOpenStatic, adLockBatchOptimistic
+        X = Label3.Caption
+        Y = "True"
+        .Open "select * from Factura where [Id_C]like '" & X & "' and [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
     End With
     Set DataGrid1.DataSource = Fact
 End Sub
@@ -425,8 +422,8 @@ End Sub
 Sub carga3()
     With Fact
         If .State = 1 Then .Close
-        y = "True"
-        .Open "select * from Factura where [Valido]like '" & y & "'", base, adOpenStatic, adLockBatchOptimistic
+        Y = "True"
+        .Open "select * from Factura where [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
     End With
     Set DataGrid1.DataSource = Fact
 End Sub
@@ -434,3 +431,4 @@ End Sub
 Private Sub Form_Load()
     carga
 End Sub
+

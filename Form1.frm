@@ -7,45 +7,53 @@ Begin VB.Form Form1
    ClientTop       =   465
    ClientWidth     =   16155
    LinkTopic       =   "Form1"
+   Picture         =   "Form1.frx":0000
    ScaleHeight     =   9000
    ScaleWidth      =   16155
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command5 
-      Caption         =   "Command5"
-      Height          =   375
-      Left            =   3360
+      Height          =   615
+      Left            =   840
+      Picture         =   "Form1.frx":1841E
+      Style           =   1  'Graphical
       TabIndex        =   24
-      Top             =   840
-      Width           =   495
-   End
-   Begin VB.CommandButton Command4 
-      Caption         =   "Command4"
-      Height          =   495
-      Left            =   14520
-      TabIndex        =   22
-      Top             =   1080
+      Top             =   720
       Width           =   615
    End
+   Begin VB.CommandButton Command4 
+      DisabledPicture =   "Form1.frx":186F1
+      DownPicture     =   "Form1.frx":18FB3
+      Height          =   855
+      Left            =   480
+      MousePointer    =   99  'Custom
+      Picture         =   "Form1.frx":19875
+      Style           =   1  'Graphical
+      TabIndex        =   22
+      Top             =   7800
+      Width           =   1095
+   End
    Begin VB.CommandButton Command3 
-      Caption         =   ">"
       Height          =   495
       Left            =   13680
+      Picture         =   "Form1.frx":1A137
+      Style           =   1  'Graphical
       TabIndex        =   20
-      Top             =   6360
+      Top             =   6480
       Width           =   495
    End
    Begin VB.CommandButton Command2 
-      Caption         =   "<"
       Height          =   495
       Left            =   2160
+      Picture         =   "Form1.frx":1A657
+      Style           =   1  'Graphical
       TabIndex        =   19
       Top             =   6480
       Width           =   495
    End
    Begin MSAdodcLib.Adodc Adodc1 
       Height          =   375
-      Left            =   1080
-      Top             =   360
+      Left            =   240
+      Top             =   6240
       Visible         =   0   'False
       Width           =   1200
       _ExtentX        =   2117
@@ -69,8 +77,8 @@ Begin VB.Form Form1
       ForeColor       =   -2147483640
       Orientation     =   0
       Enabled         =   -1
-      Connect         =   $"Form1.frx":0000
-      OLEDBString     =   $"Form1.frx":009E
+      Connect         =   $"Form1.frx":1A915
+      OLEDBString     =   $"Form1.frx":1A9B3
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
@@ -90,13 +98,13 @@ Begin VB.Form Form1
       _Version        =   393216
    End
    Begin VB.CommandButton Command1 
-      DisabledPicture =   "Form1.frx":013C
-      DownPicture     =   "Form1.frx":16B3
-      DragIcon        =   "Form1.frx":1C58
+      DisabledPicture =   "Form1.frx":1AA51
+      DownPicture     =   "Form1.frx":1BFC8
+      DragIcon        =   "Form1.frx":1C56D
       Height          =   495
       Left            =   13800
       MaskColor       =   &H0080FFFF&
-      Picture         =   "Form1.frx":34FC6
+      Picture         =   "Form1.frx":4F8DB
       Style           =   1  'Graphical
       TabIndex        =   1
       Top             =   1080
@@ -104,51 +112,52 @@ Begin VB.Form Form1
    End
    Begin VB.Label Label8 
       Caption         =   "Label8"
-      Height          =   495
-      Left            =   11880
+      Height          =   255
+      Left            =   240
       TabIndex        =   23
-      Top             =   480
+      Top             =   6720
       Visible         =   0   'False
-      Width           =   1215
+      Width           =   855
    End
    Begin VB.Label Label7 
-      Height          =   375
-      Left            =   14040
+      Height          =   255
+      Left            =   240
       TabIndex        =   21
-      Top             =   5520
-      Width           =   255
+      Top             =   7440
+      Visible         =   0   'False
+      Width           =   855
    End
    Begin VB.Label Label6 
       Height          =   255
       Index           =   6
-      Left            =   12960
+      Left            =   12720
       TabIndex        =   18
-      Top             =   6600
+      Top             =   6720
       Visible         =   0   'False
       Width           =   375
    End
    Begin VB.Label Label6 
       Height          =   255
       Index           =   5
-      Left            =   9360
+      Left            =   9120
       TabIndex        =   17
-      Top             =   6600
+      Top             =   6720
       Visible         =   0   'False
       Width           =   375
    End
    Begin VB.Label Label6 
       Height          =   255
       Index           =   4
-      Left            =   6120
+      Left            =   5640
       TabIndex        =   16
-      Top             =   6600
+      Top             =   6720
       Visible         =   0   'False
       Width           =   375
    End
    Begin VB.Label Label6 
       Height          =   255
       Index           =   3
-      Left            =   12240
+      Left            =   12480
       TabIndex        =   15
       Top             =   1680
       Visible         =   0   'False
@@ -157,7 +166,7 @@ Begin VB.Form Form1
    Begin VB.Label Label6 
       Height          =   255
       Index           =   2
-      Left            =   9360
+      Left            =   9120
       TabIndex        =   14
       Top             =   1680
       Visible         =   0   'False
@@ -175,7 +184,7 @@ Begin VB.Form Form1
    Begin VB.Label Label6 
       Height          =   255
       Index           =   0
-      Left            =   2880
+      Left            =   2520
       TabIndex        =   12
       Top             =   1680
       Visible         =   0   'False
@@ -183,61 +192,133 @@ Begin VB.Form Form1
    End
    Begin VB.Label Label5 
       Caption         =   "Label5"
-      Height          =   375
-      Left            =   1080
+      Height          =   255
+      Left            =   240
       TabIndex        =   11
-      Top             =   1080
+      Top             =   7080
       Visible         =   0   'False
-      Width           =   1575
+      Width           =   855
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
       Height          =   375
       Index           =   6
       Left            =   10440
       TabIndex        =   10
-      Top             =   8160
+      Top             =   8400
       Width           =   2175
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000E&
       Height          =   375
       Index           =   5
       Left            =   6840
       TabIndex        =   9
-      Top             =   8160
+      Top             =   8400
       Width           =   2175
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
       Height          =   375
       Index           =   4
       Left            =   3360
       TabIndex        =   8
-      Top             =   8160
+      Top             =   8400
       Width           =   2175
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000E&
       Height          =   375
       Index           =   3
       Left            =   11640
       TabIndex        =   7
-      Top             =   4800
+      Top             =   4920
       Width           =   2175
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
       Height          =   375
       Index           =   2
       Left            =   8280
       TabIndex        =   6
-      Top             =   4800
+      Top             =   4920
       Width           =   2175
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
-      Height          =   375
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000E&
+      Height          =   615
       Index           =   1
       Left            =   4800
       TabIndex        =   5
@@ -245,39 +326,55 @@ Begin VB.Form Form1
       Width           =   2175
    End
    Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
       Caption         =   "Label4"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000D&
       Height          =   375
       Index           =   0
       Left            =   1680
       TabIndex        =   4
-      Top             =   4800
+      Top             =   4920
       Width           =   2175
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   6
       Left            =   10320
       Stretch         =   -1  'True
-      Top             =   5400
+      Top             =   5520
       Width           =   2295
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   5
       Left            =   6720
       Stretch         =   -1  'True
-      Top             =   5400
+      Top             =   5520
       Width           =   2295
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   4
       Left            =   3240
       Stretch         =   -1  'True
-      Top             =   5400
+      Top             =   5520
       Width           =   2295
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   3
       Left            =   11520
@@ -286,6 +383,7 @@ Begin VB.Form Form1
       Width           =   2295
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   2
       Left            =   8160
@@ -294,6 +392,7 @@ Begin VB.Form Form1
       Width           =   2295
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   1
       Left            =   4800
@@ -302,6 +401,7 @@ Begin VB.Form Form1
       Width           =   2295
    End
    Begin VB.Image Image1 
+      BorderStyle     =   1  'Fixed Single
       Height          =   2655
       Index           =   0
       Left            =   1560
@@ -312,6 +412,7 @@ Begin VB.Form Form1
    Begin VB.Label Label3 
       Alignment       =   2  'Center
       BackColor       =   &H00FFC0C0&
+      BackStyle       =   0  'Transparent
       Caption         =   "El deporte con estilo"
       BeginProperty Font 
          Name            =   "MS UI Gothic"
@@ -324,14 +425,15 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H8000000F&
       Height          =   255
-      Left            =   6360
+      Left            =   5520
       TabIndex        =   3
-      Top             =   1080
+      Top             =   960
       Width           =   4095
    End
    Begin VB.Label Label2 
       Alignment       =   2  'Center
       BackColor       =   &H00FFC0C0&
+      BackStyle       =   0  'Transparent
       Caption         =   "FAIS"
       BeginProperty Font 
          Name            =   "MS UI Gothic"
@@ -344,12 +446,14 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H8000000F&
       Height          =   1095
-      Left            =   5880
+      Left            =   5040
       TabIndex        =   2
       Top             =   360
       Width           =   5055
    End
    Begin VB.Label Label1 
+      BackColor       =   &H00FFFFFF&
+      BackStyle       =   0  'Transparent
       Caption         =   "Filtros"
       BeginProperty Font 
          Name            =   "Perpetua Titling MT"
@@ -360,6 +464,7 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H00FFFFFF&
       Height          =   255
       Left            =   12600
       TabIndex        =   0
@@ -560,4 +665,5 @@ Private Sub Image1_Click(Index As Integer)
         End If
     End With
 End Sub
+
 
