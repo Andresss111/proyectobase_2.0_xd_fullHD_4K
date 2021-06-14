@@ -11,20 +11,22 @@ Begin VB.Form Form8
    ScaleWidth      =   5925
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command1 
-      Caption         =   "Modificar"
-      Height          =   375
-      Left            =   3000
+      Height          =   495
+      Left            =   2280
+      Picture         =   "Clientes.frx":1B99
+      Style           =   1  'Graphical
       TabIndex        =   12
       Top             =   3480
-      Width           =   1215
+      Width           =   1575
    End
    Begin VB.CommandButton cmdgu 
-      Caption         =   "Guardar"
-      Height          =   375
-      Left            =   4440
+      Height          =   495
+      Left            =   4200
+      Picture         =   "Clientes.frx":34DD
+      Style           =   1  'Graphical
       TabIndex        =   11
       Top             =   3480
-      Width           =   1215
+      Width           =   1575
    End
    Begin VB.TextBox txtema 
       Height          =   285
@@ -221,7 +223,8 @@ Private Sub cmdgu_Click()
 End Sub
 
 Private Sub Command1_Click()
-    If MsgBox("Esta seguro de editar el registro", vbYesNo) = vbNo Then Exit Sub
+    If MsgBox("Esta seguro de querer editar un registro", vbYesNo) = vbNo Then Exit Sub Else MsgBox "Ingresar el Ruc del usuario a modificar"
+    txtruc.Text = ""
     txtruc.SetFocus
     txtnomc.Text = ""
     txttel.Text = ""

@@ -3,18 +3,19 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Begin VB.Form Form9 
    Caption         =   "Form9"
-   ClientHeight    =   3600
+   ClientHeight    =   6465
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   9150
+   ClientWidth     =   12360
    LinkTopic       =   "Form9"
-   ScaleHeight     =   3600
-   ScaleWidth      =   9150
+   Picture         =   "Form9.frx":0000
+   ScaleHeight     =   6465
+   ScaleWidth      =   12360
    StartUpPosition =   3  'Windows Default
    Begin MSAdodcLib.Adodc Adodc3 
       Height          =   330
-      Left            =   1920
-      Top             =   3000
+      Left            =   360
+      Top             =   840
       Visible         =   0   'False
       Width           =   1200
       _ExtentX        =   2117
@@ -60,8 +61,8 @@ Begin VB.Form Form9
    End
    Begin MSAdodcLib.Adodc Adodc2 
       Height          =   330
-      Left            =   480
-      Top             =   3000
+      Left            =   360
+      Top             =   480
       Visible         =   0   'False
       Width           =   1200
       _ExtentX        =   2117
@@ -108,9 +109,9 @@ Begin VB.Form Form9
    Begin VB.CommandButton Command7 
       Caption         =   "Ver Facturas False"
       Height          =   495
-      Left            =   6840
+      Left            =   7920
       TabIndex        =   10
-      Top             =   360
+      Top             =   2280
       Width           =   1815
    End
    Begin VB.CommandButton Command6 
@@ -119,6 +120,7 @@ Begin VB.Form Form9
       Left            =   0
       TabIndex        =   9
       Top             =   1800
+      Visible         =   0   'False
       Width           =   375
    End
    Begin VB.CommandButton Command5 
@@ -127,14 +129,15 @@ Begin VB.Form Form9
       Left            =   0
       TabIndex        =   8
       Top             =   1320
+      Visible         =   0   'False
       Width           =   375
    End
    Begin VB.CommandButton Command4 
       Caption         =   "Buscar Fatura"
       Height          =   495
-      Left            =   6840
+      Left            =   10200
       TabIndex        =   5
-      Top             =   2160
+      Top             =   5760
       Width           =   1815
    End
    Begin MSAdodcLib.Adodc Adodc1 
@@ -188,19 +191,19 @@ Begin VB.Form Form9
       Caption         =   "Cancelar Factura"
       Enabled         =   0   'False
       Height          =   495
-      Left            =   6840
+      Left            =   7920
       TabIndex        =   3
-      Top             =   2760
+      Top             =   3000
       Width           =   1815
    End
    Begin MSDataGridLib.DataGrid DataGrid1 
-      Height          =   2295
-      Left            =   480
+      Height          =   2655
+      Left            =   1320
       TabIndex        =   2
-      Top             =   480
-      Width           =   6015
-      _ExtentX        =   10610
-      _ExtentY        =   4048
+      Top             =   1920
+      Width           =   6255
+      _ExtentX        =   11033
+      _ExtentY        =   4683
       _Version        =   393216
       Enabled         =   -1  'True
       HeadLines       =   1
@@ -261,33 +264,57 @@ Begin VB.Form Form9
    Begin VB.CommandButton Command2 
       Caption         =   "Añadir producto"
       Height          =   495
-      Left            =   6840
+      Left            =   8040
       TabIndex        =   1
-      Top             =   1560
+      Top             =   5760
       Width           =   1815
    End
    Begin VB.CommandButton Command1 
       Caption         =   "Ver Productos"
       Height          =   495
-      Left            =   6840
+      Left            =   5880
       TabIndex        =   0
-      Top             =   960
+      Top             =   5760
       Width           =   1815
+   End
+   Begin VB.Image Image3 
+      Height          =   840
+      Left            =   8520
+      Picture         =   "Form9.frx":4305A
+      Stretch         =   -1  'True
+      Top             =   4800
+      Width           =   960
+   End
+   Begin VB.Image Image2 
+      Height          =   840
+      Left            =   10560
+      Picture         =   "Form9.frx":4A160
+      Stretch         =   -1  'True
+      Top             =   4800
+      Width           =   960
+   End
+   Begin VB.Image Image1 
+      Height          =   840
+      Left            =   6360
+      Picture         =   "Form9.frx":4B6C9
+      Stretch         =   -1  'True
+      Top             =   4800
+      Width           =   960
    End
    Begin VB.Label Label4 
       Caption         =   "0"
       Height          =   255
       Left            =   3720
       TabIndex        =   11
-      Top             =   3120
+      Top             =   120
       Width           =   495
    End
    Begin VB.Label Label3 
       Caption         =   "Label3"
       Height          =   255
-      Left            =   3840
+      Left            =   1680
       TabIndex        =   7
-      Top             =   120
+      Top             =   480
       Visible         =   0   'False
       Width           =   615
    End
@@ -317,14 +344,16 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Command1_Click()
     Form1.Show
+    Form1.inicio
     Form1.Label8.Caption = 1
     Form9.Hide
 End Sub
 
 Private Sub Command2_Click()
     Form6.Show
-    Form6.Command3.Enabled = False
+    Form6.Command3.Visible = True
     Form6.Command2.Enabled = False
+    Form6.Image1.Picture = LoadPicture(App.Path & "\img\No_Picture.jpg")
     Form9.Hide
 End Sub
 
@@ -335,7 +364,6 @@ Private Sub Command3_Click()
         .Find "Id_F='" & Label1.Caption & "'"
         !Valido = "False"
         .UpdateBatch
-        .Requery
     End With
     CDFact
         With DFact
@@ -357,6 +385,7 @@ Private Sub Command3_Click()
                 .MoveNext
             Next i
         End With
+        Label5.Caption = "T"
     If Label2.Caption = "F" Then carga3
     If Label2.Caption = "T" Then carga2
 End Sub
@@ -395,9 +424,15 @@ Private Sub DataGrid1_Click()
             Label1.Caption = !Id_F
         End With
     Else
-        With Adodc1.Recordset
-            Label1.Caption = !Id_F
-        End With
+        If Label5.Caption <> "T" Then
+            With Adodc1.Recordset
+                Label1.Caption = !Id_F
+            End With
+        Else
+            With Fact
+                Label1.Caption = !Id_F
+            End With
+        End If
     End If
 End Sub
 
@@ -432,3 +467,6 @@ Private Sub Form_Load()
     carga
 End Sub
 
+Private Sub Image1_Click()
+
+End Sub

@@ -67,3 +67,4 @@ Private Sub Command2_Click()
     Form1.inicio
     Me.Hide
 End Sub
+

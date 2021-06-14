@@ -32,13 +32,14 @@ Begin VB.Form Form4
    End
    Begin VB.CommandButton Command1 
       BackColor       =   &H00FFC0C0&
-      Caption         =   "Agregar a Carrito"
       Enabled         =   0   'False
       Height          =   495
-      Left            =   5400
+      Left            =   5640
       MaskColor       =   &H00FFC0FF&
+      Picture         =   "Espesificaciones.frx":21C0A
+      Style           =   1  'Graphical
       TabIndex        =   0
-      Top             =   4080
+      Top             =   4320
       UseMaskColor    =   -1  'True
       Width           =   2895
    End
@@ -147,6 +148,9 @@ Begin VB.Form Form4
       Width           =   615
    End
    Begin VB.Label Label4 
+      BackStyle       =   0  'Transparent
+      BorderStyle     =   1  'Fixed Single
+      ForeColor       =   &H00FFFFFF&
       Height          =   615
       Left            =   4440
       TabIndex        =   2
@@ -172,6 +176,7 @@ Attribute VB_Exposed = False
 
 Private Sub Command1_Click()
     If Text1.Text = "" Then Exit Sub
+    If DataCombo1.Text = "Seleccionar..." Then Exit Sub
     CTEMP
     With Temp
         .AddNew
@@ -183,6 +188,7 @@ Private Sub Command1_Click()
         !Total = Label6.Caption
         .UpdateBatch
     End With
+    Form1.Command4.Enabled = True
     Form4.Hide
 End Sub
 

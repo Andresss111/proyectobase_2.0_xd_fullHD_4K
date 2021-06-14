@@ -486,18 +486,17 @@ Private Sub Command2_Click()
     CTP
     If Form3.DataCombo1.Text <> "Seleccionar..." Then Form3.bus
     With TP
-        X = Label7.Caption
-        .Find "Id_Producto='" & X & "'"
+        .Find "Id_Producto='" & Label7.Caption & "'"
         X = 6
         For i = 0 To 6
             If .EOF Or .BOF Then Exit Sub
-            If i > 0 Then .MovePrevious
+                .MovePrevious
             If .EOF Or .BOF Then Exit Sub
             If Trim(!URL) = "" Then
                 Image1(X).Picture = LoadPicture("& App.Path &\img\df.jpg")
             Else
                 Y = App.Path
-                Image1(i).Picture = LoadPicture(Y & "\img\" & Trim(!URL))
+                Image1(X).Picture = LoadPicture(Y & "\img\" & Trim(!URL))
             End If
             Label4(X).Caption = !Etiqueta
             Label6(X).Caption = !Id_Producto
@@ -537,10 +536,12 @@ End Sub
 
 Private Sub Command4_Click()
     Form2.Show
+    Form2.inicio
 End Sub
 
 Private Sub Command5_Click()
     If Label8.Caption = 1 Then Form9.Show Else Form5.Show
+    Form3.Hide
     Form1.Hide
 End Sub
 
@@ -549,6 +550,7 @@ Private Sub Form_Load()
 End Sub
 
 Sub inicio()
+    Command4.Enabled = False
     CTP
     With TP
         invicible
@@ -621,6 +623,7 @@ Sub invicible()
 End Sub
 
 Private Sub Image1_Click(Index As Integer)
+    Form3.Hide
     Label5.Caption = Index
     X = Label5.Caption
     Label5.Caption = Label6(X).Caption
@@ -640,11 +643,12 @@ Private Sub Image1_Click(Index As Integer)
             Form6.Text2.Text = Trim(!Descripcion)
             Form6.Text3.Text = Trim(!Precio)
             Form6.Command1.Enabled = False
+            Form6.Command3.Visible = False
             Form6.Text4(0).Text = Trim(!Talla_S)
             Form6.Text4(1).Text = Trim(!Talla_M)
             Form6.Text4(2).Text = Trim(!Talla_G)
             Form6.ID.Caption = Trim(!Id_Producto)
-            
+            Form6.Label9.Caption = Trim(!URL)
         Else
             Form4.Show
             If Trim(!URL) = "" Then

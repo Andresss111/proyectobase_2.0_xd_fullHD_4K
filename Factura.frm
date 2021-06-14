@@ -61,26 +61,29 @@ Begin VB.Form Form2
    Begin VB.PictureBox Picture1 
       Height          =   6255
       Left            =   600
+      Picture         =   "Factura.frx":0000
       ScaleHeight     =   6195
       ScaleWidth      =   7155
       TabIndex        =   0
       Top             =   360
       Width           =   7215
       Begin VB.CommandButton Command1 
-         Caption         =   "Guardar"
          Height          =   375
          Left            =   2520
+         Picture         =   "Factura.frx":1F0D
+         Style           =   1  'Graphical
          TabIndex        =   20
          Top             =   5640
-         Width           =   1335
+         Width           =   1455
       End
       Begin VB.CommandButton cmdcli 
-         Caption         =   "Nuevo Cliente"
-         Height          =   255
-         Left            =   240
+         Height          =   375
+         Left            =   840
+         Picture         =   "Factura.frx":3031
+         Style           =   1  'Graphical
          TabIndex        =   19
          Top             =   5640
-         Width           =   1575
+         Width           =   1335
       End
       Begin MSDataGridLib.DataGrid DataGrid1 
          Height          =   2175
@@ -203,11 +206,12 @@ Begin VB.Form Form2
          Width           =   3255
       End
       Begin VB.Label Label11 
-         Height          =   375
-         Left            =   360
+         BackStyle       =   0  'Transparent
+         Height          =   255
+         Left            =   1320
          TabIndex        =   21
          Top             =   360
-         Width           =   495
+         Width           =   735
       End
       Begin VB.Label Label10 
          Alignment       =   1  'Right Justify
@@ -269,6 +273,7 @@ Begin VB.Form Form2
       Begin VB.Label Label7 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   "Teléfono:"
          BeginProperty Font 
             Name            =   "Niagara Solid"
@@ -288,6 +293,7 @@ Begin VB.Form Form2
       Begin VB.Label Label6 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   "Dirección:"
          BeginProperty Font 
             Name            =   "Niagara Solid"
@@ -307,6 +313,7 @@ Begin VB.Form Form2
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   "RUC:"
          BeginProperty Font 
             Name            =   "Niagara Solid"
@@ -326,6 +333,7 @@ Begin VB.Form Form2
       Begin VB.Label Label4 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   "Nombre:"
          BeginProperty Font 
             Name            =   "Niagara Solid"
@@ -345,6 +353,7 @@ Begin VB.Form Form2
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   "Obispo Alberto Ordoñez Crespo Esquina, Cdla Católica"
          BeginProperty Font 
             Name            =   "Niagara Solid"
@@ -364,6 +373,7 @@ Begin VB.Form Form2
       Begin VB.Label Label2 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   """El deporte con estilo"""
          BeginProperty Font 
             Name            =   "MS Serif"
@@ -383,6 +393,7 @@ Begin VB.Form Form2
       End
       Begin VB.Label Label1 
          BackColor       =   &H00FFFFFF&
+         BackStyle       =   0  'Transparent
          Caption         =   "FAIS"
          BeginProperty Font 
             Name            =   "Poor Richard"
@@ -485,6 +496,7 @@ Private Sub Command1_Click()
         Label13.Caption = c
         CTP
         With TP
+            .Find "Id_Producto='" & a & "'"
             If Label13.Caption = "S" Then !Talla_S = Val(!Talla_S) - Val(d)
             If Label13.Caption = "M" Then !Talla_M = Val(!Talla_M) - Val(d)
             If Label13.Caption = "G" Then !Talla_G = Val(!Talla_G) - Val(d)
@@ -516,6 +528,8 @@ Private Sub Command1_Click()
         End With
     Next i
     Form1.Show
+    Form1.Command4.Enabled = False
+    Form1.inicio
     Form2.Hide
 End Sub
 
@@ -538,6 +552,10 @@ Private Sub Form_Load()
     'Adodc1.CursorLocation = adUseClient
     'Adodc1."Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\base\base.mdb;Persist Security Info=False"
     'Adodc1.RecordSource = "select * from Temp"
+    inicio
+End Sub
+
+Sub inicio()
     CFact
     With Fact
         If .EOF Or .BOF Then

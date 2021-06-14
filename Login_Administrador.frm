@@ -1,78 +1,108 @@
 VERSION 5.00
 Begin VB.Form Form7 
    Caption         =   "Form7"
-   ClientHeight    =   3360
+   ClientHeight    =   5235
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   4920
+   ClientWidth     =   5835
    LinkTopic       =   "Form7"
-   ScaleHeight     =   3360
-   ScaleWidth      =   4920
+   Picture         =   "Login_Administrador.frx":0000
+   ScaleHeight     =   5235
+   ScaleWidth      =   5835
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton cmdsal 
-      Caption         =   "Salir"
+      Appearance      =   0  'Flat
       Height          =   255
-      Left            =   2280
+      Left            =   2400
+      MaskColor       =   &H00FFFFFF&
+      Picture         =   "Login_Administrador.frx":134F3
+      Style           =   1  'Graphical
       TabIndex        =   6
-      Top             =   2280
-      Width           =   1215
+      Top             =   4560
+      Width           =   1335
    End
    Begin VB.CommandButton cmding 
-      Caption         =   "Ingresar"
       Height          =   255
-      Left            =   720
+      Left            =   480
+      Picture         =   "Login_Administrador.frx":1402C
+      Style           =   1  'Graphical
       TabIndex        =   5
-      Top             =   2280
+      Top             =   4560
       Width           =   1215
    End
    Begin VB.TextBox txtcon 
       Height          =   285
       IMEMode         =   3  'DISABLE
-      Left            =   1560
+      Left            =   1440
       PasswordChar    =   "*"
       TabIndex        =   4
-      Top             =   1440
+      Top             =   3720
       Width           =   2415
    End
    Begin VB.TextBox txtusu 
       Height          =   285
-      Left            =   1320
+      Left            =   1440
       TabIndex        =   3
-      Top             =   960
+      Top             =   3120
       Width           =   2415
    End
    Begin VB.Label Label3 
+      BackStyle       =   0  'Transparent
       Caption         =   "Contraseña:"
-      Height          =   255
-      Left            =   480
-      TabIndex        =   2
-      Top             =   1440
-      Width           =   975
-   End
-   Begin VB.Label Label2 
-      Caption         =   "Usuario:"
-      Height          =   255
-      Left            =   480
-      TabIndex        =   1
-      Top             =   960
-      Width           =   735
-   End
-   Begin VB.Label Label1 
-      Caption         =   "Bienvenido"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   12
+         Name            =   "Palatino Linotype"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   255
+      Left            =   360
+      TabIndex        =   2
+      Top             =   3720
+      Width           =   975
+   End
+   Begin VB.Label Label2 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Usuario:"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   255
+      Left            =   480
+      TabIndex        =   1
+      Top             =   3120
+      Width           =   735
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "Bienvenido"
+      BeginProperty Font 
+         Name            =   "Palatino Linotype"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
       Height          =   375
-      Left            =   1800
+      Left            =   960
       TabIndex        =   0
-      Top             =   240
-      Width           =   1215
+      Top             =   2040
+      Width           =   1815
    End
 End
 Attribute VB_Name = "Form7"
