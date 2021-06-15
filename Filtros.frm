@@ -2,20 +2,20 @@ VERSION 5.00
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Begin VB.Form Form3 
    Caption         =   "Form3"
-   ClientHeight    =   5010
+   ClientHeight    =   2640
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   6750
+   ClientWidth     =   4815
    LinkTopic       =   "Form3"
    Picture         =   "Filtros.frx":0000
-   ScaleHeight     =   5010
-   ScaleWidth      =   6750
+   ScaleHeight     =   2640
+   ScaleWidth      =   4815
    StartUpPosition =   3  'Windows Default
    Begin MSDataListLib.DataCombo DataCombo1 
       Height          =   315
-      Left            =   1200
+      Left            =   1440
       TabIndex        =   3
-      Top             =   2280
+      Top             =   2160
       Width           =   2295
       _ExtentX        =   4048
       _ExtentY        =   556

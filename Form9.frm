@@ -68,13 +68,13 @@ Begin VB.Form Form9
       Width           =   1815
    End
    Begin VB.CommandButton Command5 
-      Caption         =   "Regresar"
-      Height          =   495
-      Left            =   120
+      Height          =   615
+      Left            =   360
+      Picture         =   "Form9.frx":4305A
+      Style           =   1  'Graphical
       TabIndex        =   8
-      Top             =   2640
-      Visible         =   0   'False
-      Width           =   975
+      Top             =   5520
+      Width           =   615
    End
    Begin VB.CommandButton Command4 
       Caption         =   "Buscar Fatura"
@@ -242,7 +242,7 @@ Begin VB.Form Form9
    Begin VB.Image Image3 
       Height          =   840
       Left            =   8520
-      Picture         =   "Form9.frx":4305A
+      Picture         =   "Form9.frx":4332D
       Stretch         =   -1  'True
       Top             =   4800
       Width           =   960
@@ -250,7 +250,7 @@ Begin VB.Form Form9
    Begin VB.Image Image2 
       Height          =   840
       Left            =   10560
-      Picture         =   "Form9.frx":4A160
+      Picture         =   "Form9.frx":4A433
       Stretch         =   -1  'True
       Top             =   4800
       Width           =   960
@@ -258,7 +258,7 @@ Begin VB.Form Form9
    Begin VB.Image Image1 
       Height          =   840
       Left            =   6360
-      Picture         =   "Form9.frx":4B6C9
+      Picture         =   "Form9.frx":4B99C
       Stretch         =   -1  'True
       Top             =   4800
       Width           =   960
@@ -373,6 +373,7 @@ Private Sub Command7_Click()
             .Open "select * from Factura where [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
         End With
         Set DataGrid1.DataSource = Fact
+        DataGrid1.Columns(6).Width = 0
         Command7.Caption = "Ver Facturas True"
         Command3.Enabled = False
     Else
@@ -407,6 +408,7 @@ Sub carga()
     X = "True"
     Adodc1.RecordSource = "select * from Factura where [Valido]like '" & X & "'"
     Set DataGrid1.DataSource = Adodc1
+    DataGrid1.Columns(6).Width = 0
 End Sub
 
 Sub carga2()
@@ -417,6 +419,7 @@ Sub carga2()
         .Open "select * from Factura where [Id_C]like '" & X & "' and [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
     End With
     Set DataGrid1.DataSource = Fact
+    DataGrid1.Columns(6).Width = 0
 End Sub
 
 Sub carga3()
@@ -426,6 +429,7 @@ Sub carga3()
         .Open "select * from Factura where [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
     End With
     Set DataGrid1.DataSource = Fact
+    DataGrid1.Columns(6).Width = 0
 End Sub
 
 Private Sub DataGrid1_DblClick()

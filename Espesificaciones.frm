@@ -151,7 +151,7 @@ Begin VB.Form Form4
    Begin VB.Label Label4 
       BackStyle       =   0  'Transparent
       BorderStyle     =   1  'Fixed Single
-      ForeColor       =   &H00FFFFFF&
+      ForeColor       =   &H00C0FFFF&
       Height          =   615
       Left            =   4440
       TabIndex        =   2

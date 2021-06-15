@@ -211,7 +211,7 @@ Begin VB.Form Form2
          Height          =   255
          Left            =   1320
          TabIndex        =   21
-         Top             =   360
+         Top             =   480
          Width           =   735
       End
       Begin VB.Label Label10 
