@@ -16,6 +16,7 @@ Begin VB.Form Form2
       Height          =   330
       Left            =   480
       Top             =   6840
+      Visible         =   0   'False
       Width           =   1455
       _ExtentX        =   2566
       _ExtentY        =   582
@@ -418,6 +419,7 @@ Begin VB.Form Form2
       Left            =   120
       TabIndex        =   24
       Top             =   3720
+      Visible         =   0   'False
       Width           =   255
    End
    Begin VB.Label bloq 
@@ -426,6 +428,7 @@ Begin VB.Form Form2
       Left            =   120
       TabIndex        =   23
       Top             =   2520
+      Visible         =   0   'False
       Width           =   255
    End
    Begin VB.Label Label12 
@@ -434,6 +437,7 @@ Begin VB.Form Form2
       Left            =   120
       TabIndex        =   22
       Top             =   1440
+      Visible         =   0   'False
       Width           =   255
    End
 End

@@ -14,7 +14,7 @@ Sub main()
     With base
         .CursorLocation = adUseClient
         .Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\base\base.mdb;Persist Security Info=False"
-        Form5.Show
+        Form9.Show
     End With
 End Sub
 
@@ -79,4 +79,5 @@ Sub CTU()
         .Open "select * from Login_Ad", base, adOpenStatic, adLockBatchOptimistic
     End With
 End Sub
+
 

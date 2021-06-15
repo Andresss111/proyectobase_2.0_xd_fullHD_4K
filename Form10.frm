@@ -37,4 +37,3 @@ Private Sub Text1_Change()
     Form9.Label4.Caption = "1"
     Set Form9.DataGrid1.DataSource = Fact
 End Sub
-

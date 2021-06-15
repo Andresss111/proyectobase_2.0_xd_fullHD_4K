@@ -644,6 +644,7 @@ Private Sub Image1_Click(Index As Integer)
             Form6.Text3.Text = Trim(!Precio)
             Form6.Command1.Enabled = False
             Form6.Command3.Visible = False
+            Form6.Command2.Enabled = True
             Form6.Text4(0).Text = Trim(!Talla_S)
             Form6.Text4(1).Text = Trim(!Talla_M)
             Form6.Text4(2).Text = Trim(!Talla_G)

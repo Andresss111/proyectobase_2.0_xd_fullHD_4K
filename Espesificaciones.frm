@@ -110,6 +110,7 @@ Begin VB.Form Form4
       Left            =   240
       TabIndex        =   5
       Top             =   600
+      Visible         =   0   'False
       Width           =   495
    End
    Begin VB.Image Image2 

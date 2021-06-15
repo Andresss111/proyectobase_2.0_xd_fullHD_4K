@@ -63,8 +63,9 @@ Begin VB.Form Form6
       Width           =   375
    End
    Begin VB.CommandButton Command3 
+      Caption         =   "Regresar"
       Height          =   375
-      Left            =   1560
+      Left            =   120
       Picture         =   "Tipo de Producto.frx":17073
       Style           =   1  'Graphical
       TabIndex        =   8
@@ -72,6 +73,7 @@ Begin VB.Form Form6
       Width           =   1215
    End
    Begin VB.CommandButton Command2 
+      Caption         =   "Modificar"
       Height          =   375
       Left            =   3000
       Picture         =   "Tipo de Producto.frx":17C9F
@@ -81,8 +83,9 @@ Begin VB.Form Form6
       Width           =   1215
    End
    Begin VB.CommandButton Command1 
+      Caption         =   "Guardar"
       Height          =   375
-      Left            =   120
+      Left            =   1560
       Picture         =   "Tipo de Producto.frx":18982
       Style           =   1  'Graphical
       TabIndex        =   6
@@ -153,6 +156,7 @@ Begin VB.Form Form6
       Left            =   120
       TabIndex        =   20
       Top             =   120
+      Visible         =   0   'False
       Width           =   255
    End
    Begin VB.Label Label10 

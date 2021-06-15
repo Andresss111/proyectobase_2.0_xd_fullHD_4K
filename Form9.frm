@@ -12,53 +12,6 @@ Begin VB.Form Form9
    ScaleHeight     =   6465
    ScaleWidth      =   12360
    StartUpPosition =   3  'Windows Default
-   Begin MSAdodcLib.Adodc Adodc3 
-      Height          =   330
-      Left            =   360
-      Top             =   840
-      Visible         =   0   'False
-      Width           =   1200
-      _ExtentX        =   2117
-      _ExtentY        =   582
-      ConnectMode     =   0
-      CursorLocation  =   3
-      IsolationLevel  =   -1
-      ConnectionTimeout=   15
-      CommandTimeout  =   30
-      CursorType      =   3
-      LockType        =   3
-      CommandType     =   8
-      CursorOptions   =   0
-      CacheSize       =   50
-      MaxRecords      =   0
-      BOFAction       =   0
-      EOFAction       =   0
-      ConnectStringType=   1
-      Appearance      =   1
-      BackColor       =   -2147483643
-      ForeColor       =   -2147483640
-      Orientation     =   0
-      Enabled         =   -1
-      Connect         =   ""
-      OLEDBString     =   ""
-      OLEDBFile       =   ""
-      DataSourceName  =   ""
-      OtherAttributes =   ""
-      UserName        =   ""
-      Password        =   ""
-      RecordSource    =   ""
-      Caption         =   "Adodc3"
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      _Version        =   393216
-   End
    Begin MSAdodcLib.Adodc Adodc2 
       Height          =   330
       Left            =   360
@@ -110,27 +63,18 @@ Begin VB.Form Form9
       Caption         =   "Ver Facturas False"
       Height          =   495
       Left            =   7920
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   2280
       Width           =   1815
    End
-   Begin VB.CommandButton Command6 
-      Caption         =   "Command6"
-      Height          =   315
-      Left            =   0
-      TabIndex        =   9
-      Top             =   1800
-      Visible         =   0   'False
-      Width           =   375
-   End
    Begin VB.CommandButton Command5 
-      Caption         =   "Command5"
-      Height          =   255
-      Left            =   0
+      Caption         =   "Regresar"
+      Height          =   495
+      Left            =   120
       TabIndex        =   8
-      Top             =   1320
+      Top             =   2640
       Visible         =   0   'False
-      Width           =   375
+      Width           =   975
    End
    Begin VB.CommandButton Command4 
       Caption         =   "Buscar Fatura"
@@ -277,6 +221,24 @@ Begin VB.Form Form9
       Top             =   5760
       Width           =   1815
    End
+   Begin VB.Label rep 
+      Caption         =   "rep"
+      Height          =   495
+      Left            =   8520
+      TabIndex        =   12
+      Top             =   120
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.Label Label5 
+      Caption         =   "Label5"
+      Height          =   375
+      Left            =   5160
+      TabIndex        =   11
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   615
+   End
    Begin VB.Image Image3 
       Height          =   840
       Left            =   8520
@@ -305,8 +267,9 @@ Begin VB.Form Form9
       Caption         =   "0"
       Height          =   255
       Left            =   3720
-      TabIndex        =   11
+      TabIndex        =   10
       Top             =   120
+      Visible         =   0   'False
       Width           =   495
    End
    Begin VB.Label Label3 
@@ -353,6 +316,7 @@ Private Sub Command2_Click()
     Form6.Show
     Form6.Command3.Visible = True
     Form6.Command2.Enabled = False
+    Form6.Command1.Enabled = True
     Form6.Image1.Picture = LoadPicture(App.Path & "\img\No_Picture.jpg")
     Form9.Hide
 End Sub
@@ -402,14 +366,15 @@ Private Sub Command5_Click()
 End Sub
 
 Private Sub Command7_Click()
-    Set DataGrid1.DataSource = Nothing
     If Command7.Caption = "Ver Facturas False" Then
-        Adodc2.CursorLocation = adUseClient
-        Adodc2.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & App.Path & "\base\base.mdb;Persist Security Info=False"
-        X = "False"
-        Adodc2.RecordSource = "select * from Factura where [Valido]like '" & X & "'"
-        Set DataGrid1.DataSource = Adodc2
+        With Fact
+            If .State = 1 Then .Close
+            Y = "False"
+            .Open "select * from Factura where [Valido]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
+        End With
+        Set DataGrid1.DataSource = Fact
         Command7.Caption = "Ver Facturas True"
+        Command3.Enabled = False
     Else
         carga3
         Command7.Caption = "Ver Facturas False"
@@ -418,7 +383,7 @@ End Sub
 
 Private Sub DataGrid1_Click()
     If DataGrid1.ApproxCount < 1 Then Exit Sub
-    Command3.Enabled = True
+    If Command7.Caption = "Ver Facturas False" Then Command3.Enabled = True
     If Label2.Caption = "T" Then
         With Fact
             Label1.Caption = !Id_F
@@ -463,10 +428,35 @@ Sub carga3()
     Set DataGrid1.DataSource = Fact
 End Sub
 
+Private Sub DataGrid1_DblClick()
+    With DataReport1
+        .Sections("Sección4").Controls("Etiqueta1").Caption = Label1.Caption
+    End With
+    CFact
+    With Fact
+        .Find "Id_F='" & Label1.Caption & "'"
+        rep.Caption = !Id_C
+        DataReport1.Sections("Sección3").Controls("Etiqueta12").Caption = !Subtotal
+        DataReport1.Sections("Sección3").Controls("Etiqueta13").Caption = !IVA
+        DataReport1.Sections("Sección3").Controls("Etiqueta14").Caption = !Total
+        If !Valido = "True" Then DataReport1.Sections("Sección4").Controls("Etiqueta18").Caption = "Vigente"
+    End With
+    CTC
+    With Clientes
+        .Find "Id_C='" & rep.Caption & "'"
+        rep.Caption = !Nombre
+        DataReport1.Sections("Sección4").Controls("Etiqueta11").Caption = rep.Caption
+    End With
+    With DFact
+        If .State = 1 Then .Close
+        Y = Label1.Caption
+        .Open "select * from Detalle_Factura where [Id_F]like '" & Y & "'", base, adOpenStatic, adLockBatchOptimistic
+    End With
+    Set DataReport1.DataSource = DFact
+    DataReport1.Show
+End Sub
+
 Private Sub Form_Load()
     carga
 End Sub
 
-Private Sub Image1_Click()
-
-End Sub
